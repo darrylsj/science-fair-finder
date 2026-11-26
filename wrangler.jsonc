@@ -1,0 +1,23 @@
+{
+  // Cloudflare reads this file to know how to run the app.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "science-fair-finder",
+  "main": "src/index.js",
+  "compatibility_date": "2025-10-01",
+
+  // Everything in /public is served as the website (pages, maps, test data).
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+
+  // One small always-consistent database (a Durable Object with SQLite inside)
+  // holds the roster and check-ins. Works on the free Cloudflare plan.
+  "durable_objects": {
+    "bindings": [{ "name": "FAIR", "class_name": "FairRoom" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["FairRoom"] }],
+
+  "observability": { "enabled": true }
+
+  // Access codes are NOT stored here. Set two secrets in the Cloudflare dashboard
+  // (Worker > Settings > Variables and Secrets): JUDGE_CODE and ADMIN_CODE.
+  // Until both are set the app runs in TEST MODE with fake data only.
+}

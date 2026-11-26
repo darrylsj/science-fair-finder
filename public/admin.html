@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14213d">
+<title>Check-in desk - GSP Science Fair Finder</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230b6e4f%27/%3E%3Ccircle cx=%2716%27 cy=%2714%27 r=%276%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%273%27/%3E%3Cpath d=%27M16 20v7%27 stroke=%27%23fff%27 stroke-width=%273%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="top" style="background:#14213d">
+  <h1>Check-in desk <small><a href="/">Judge view</a></small></h1>
+  <select id="event" aria-label="Science fair"></select>
+</header>
+<div id="demo" class="demo" hidden></div>
+
+<main>
+  <section id="gate" class="card" hidden>
+    <h2>Admin code</h2>
+    <form id="gateForm" class="field">
+      <input id="code" type="password" autocomplete="off" placeholder="Admin code" aria-label="Admin code">
+      <button class="btn">Go</button>
+    </form>
+    <p id="gateError" class="error"></p>
+  </section>
+
+  <div id="app" hidden>
+    <!-- Appears when a scholar is picked -->
+    <section id="assign" class="assign" hidden>
+      <b id="assignName"></b>
+      <p id="assignInfo"></p>
+      <form id="assignForm" class="row">
+        <input id="assignTable" type="text" inputmode="numeric" placeholder="Table #" aria-label="Table number">
+        <button class="btn">Check in</button>
+        <button id="assignUndo" class="btn ghost small" type="button">Undo check-in</button>
+        <button id="assignCancel" class="btn ghost small" type="button">Close</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="status"><span id="dot" class="dot"></span><span id="status">Connecting...</span></div>
+      <input id="q" type="search" placeholder="Scholar name" autocomplete="off" aria-label="Search scholars">
+      <div class="tabs" id="tabs">
+        <button data-f="waiting" class="on">Waiting</button>
+        <button data-f="seated">Checked in</button>
+        <button data-f="all">Everyone</button>
+      </div>
+      <ul id="results" class="results"></ul>
+      <p id="more" class="hint"></p>
+    </section>
+
+    <section class="card" id="mapCard">
+      <div class="mapbar">
+        <h2 id="mapTitle">Map</h2>
+        <button id="zoom" class="btn ghost small" type="button">Zoom in</button>
+      </div>
+      <div id="map" class="mapwrap"></div>
+      <div id="legend" class="legend"></div>
+      <p id="tableInfo" class="hint">Pick a scholar, then tap their table. The small numbers show how many scholars are at each table.</p>
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>Add one scholar</summary>
+        <form id="addForm">
+          <div class="row"><input id="addName" type="text" placeholder="Full name" required></div>
+          <div class="row">
+            <input id="addGrade" type="text" placeholder="Grade" style="flex:1;width:auto">
+            <input id="addCategory" type="text" placeholder="Category" style="flex:2;width:auto">
+          </div>
+          <div class="row"><button class="btn small">Add</button></div>
+        </form>
+      </details>
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>Roster tools</summary>
+        <div class="row">
+          <button id="seed" class="btn ghost small" type="button">Load fake test roster</button>
+          <button id="simulate" class="btn ghost small" type="button">Fake roster, everyone seated</button>
+        </div>
+        <div class="row">
+          <button id="reset" class="btn danger small" type="button">Clear all check-ins</button>
+          <button id="clear" class="btn danger small" type="button">Delete this roster</button>
+        </div>
+        <h2 style="margin-top:18px">Upload the real roster (CSV)</h2>
+        <p class="hint">Columns: <b>name</b> (or first name + last name), grade, category, title, table. Only name is required. Export from Judgify or a Google Sheet, then choose the file or paste it here.</p>
+        <div class="row"><input id="csvFile" type="file" accept=".csv,text/csv"></div>
+        <div class="row"><textarea id="csvText" placeholder="name,grade,category,title"></textarea></div>
+        <div class="row">
+          <label><input id="csvReplace" type="checkbox" checked> Replace the current roster</label>
+          <button id="csvGo" class="btn small" type="button">Upload</button>
+        </div>
+        <p class="hint"><a href="#" id="signout">Sign out of this device</a></p>
+      </details>
+    </section>
+  </div>
+</main>
+
+<script src="/js/common.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

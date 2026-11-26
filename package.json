@@ -1,0 +1,14 @@
+{
+  "name": "science-fair-finder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GSP Science Fair project finder: judges look up a scholar and see their table on the gym map.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build:data": "python3 tools/build_layouts.py && python3 tools/make_test_roster.py"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
