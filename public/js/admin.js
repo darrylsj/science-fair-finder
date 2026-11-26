@@ -116,8 +116,10 @@
   function renderList() {
     const query = $("#q").value.trim();
     let rows = query ? SFF.search(students, query) : students;
-    if (filter === "waiting") rows = rows.filter((s) => !s.table);
-    if (filter === "seated") rows = rows.filter((s) => s.table);
+    // The tabs only narrow the list when nothing is typed. A typed search always looks at everyone,
+    // so a scholar who is already checked in can still be found and moved.
+    if (!query && filter === "waiting") rows = rows.filter((s) => !s.table);
+    if (!query && filter === "seated") rows = rows.filter((s) => s.table);
     const MAX_ROWS = query ? 20 : 8; // keep the list short so the map stays close on a phone
     const list = $("#results");
     list.innerHTML = "";
