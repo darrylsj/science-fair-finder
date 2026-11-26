@@ -8,8 +8,8 @@ It writes one JSON file per science fair into public/layouts/.
 All positions are in FEET, measured from the top-left corner of the room,
 copied from the layout drawings in the GSP Science Fair Google Drive.
 
-TO ADD A NEW YEAR (for example 2027):
-    1. Copy the make_2026() function and rename it make_2027().
+TO ADD A NEW YEAR (for example 2028):
+    1. Copy the make_2026() function and rename it make_2028().
     2. Change the table positions to match the new drawing.
     3. Add it to the LAYOUTS list at the bottom of this file.
     4. Run this script again.
@@ -98,6 +98,20 @@ def make_2026():
             [43.8, 10.6, 43.8, 68.0, "#6b7280"], [60.8, 11.5, 60.8, 68.0, "#6b7280"], [79.5, 11.5, 79.5, 68.0, "#6b7280"],
         ],
     }
+
+
+def make_2027():
+    """Bellarmine gym, January 23 2027.
+
+    DRAFT: the 2027 drawing does not exist yet, so this starts as an exact copy of
+    the 2026 Bellarmine map (same room, same 46 tables). When the real 2027 layout
+    is ready, replace the line below with its own table list, the way make_2026() does it.
+    """
+    layout = make_2026()
+    layout["id"] = "2027"
+    layout["name"] = "2027 - Bellarmine Gym"
+    layout["date"] = "2027-01-23"
+    return layout
 
 
 def make_2025():
@@ -204,8 +218,8 @@ def make_2023():
     }
 
 
-LAYOUTS = [make_2026(), make_2025(), make_2023()]
-DEFAULT_EVENT = "2026"
+LAYOUTS = [make_2027(), make_2026(), make_2025(), make_2023()]
+DEFAULT_EVENT = "2027"
 
 if __name__ == "__main__":
     OUT_DIR.mkdir(parents=True, exist_ok=True)

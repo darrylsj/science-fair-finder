@@ -8,15 +8,25 @@
   let students = [];
   let selectedId = null;
   let filter = "waiting";
+  const wide = () => window.matchMedia("(min-width: 1000px)").matches;
+  const deskName = ""; // room to record who did each check-in later; today there is one shared password
 
-  SFF.showDemoBanner();
+  SFF.showDemoBanner().then((config) => {
+    if (config.demo) $("#qrCode").value = config.demoJudgeCode;
+  });
+  // Opens a printable poster with a QR code that signs judges in.
+  $("#qrGo").addEventListener("click", () => {
+    const code = $("#qrCode").value.trim();
+    if (!code) return SFF.toast("Type the judge code first.");
+    window.open("/poster.html#code=" + encodeURIComponent(code), "_blank");
+  });
 
   // ---------- signing in ----------
 
   async function trySignIn(code) {
     try {
       const result = await SFF.login(code);
-      if (result.role !== "admin") throw new Error("That is a judge code. The check-in desk needs the admin code.");
+      if (result.role !== "admin") throw new Error("That is the judge code. The check-in desk has its own password.");
       $("#gate").hidden = true;
       $("#app").hidden = false;
       await openEvent();
@@ -56,11 +66,32 @@
     map.counts(counts);
     renderList();
     renderAssign();
+    renderRecent();
+  }
+
+  // The last few check-ins from every desk, newest first.
+  function renderRecent() {
+    const list = $("#recent");
+    list.innerHTML = "";
+    const latest = students.filter((s) => s.table && s.checkedInAt).sort((a, b) => b.checkedInAt - a.checkedInAt).slice(0, 6);
+    for (const s of latest) {
+      const li = document.createElement("li");
+      const minutes = Math.max(0, Math.round((Date.now() - s.checkedInAt) / 60000));
+      const when = minutes < 1 ? "just now" : minutes < 60 ? minutes + " min ago" : Math.round(minutes / 60) + " h ago";
+      const what = document.createElement("div");
+      what.textContent = `${s.name} → table ${s.table}`;
+      const who = document.createElement("span");
+      who.textContent = (s.by ? s.by + " · " : "") + when;
+      li.append(what, who);
+      li.addEventListener("click", () => select(s.id));
+      list.appendChild(li);
+    }
+    if (latest.length === 0) list.innerHTML = '<li><span>Nobody yet.</span></li>';
   }
 
   async function openEvent() {
     layout = await SFF.loadLayout(eventId);
-    map = SFF.drawMap($("#map"), layout, { onTable: tableTapped });
+    map = SFF.drawMap($("#map"), layout, { onTable: tableTapped, onZoom: (zoomed) => ($("#zoomAll").disabled = !zoomed) });
     SFF.drawLegend($("#legend"), layout);
     $("#mapTitle").textContent = layout.venue;
     selectedId = null;
@@ -74,7 +105,8 @@
       await refresh();
       return result;
     } catch (error) {
-      SFF.toast(error.message, 4000);
+      SFF.toast("Not saved: " + error.message, 5000);
+      refresh(); // put the screen back to what the server really has
       return null;
     }
   }
@@ -96,6 +128,11 @@
       who.className = "who";
       const name = document.createElement("b");
       name.textContent = s.name;
+      if (s.number) {
+        const number = document.createElement("i");
+        number.textContent = "#" + s.number;
+        name.appendChild(number);
+      }
       const sub = document.createElement("span");
       sub.textContent = [s.grade && "Grade " + s.grade, s.section || s.category].filter(Boolean).join(" · ");
       who.append(name, sub);
@@ -115,7 +152,11 @@
     renderList();
     renderAssign();
     // Bring the map up under the dark "assign" bar so the next tap is a table.
-    if (id) $("#mapCard").scrollIntoView({ behavior: "smooth", block: "center" });
+    // (Not needed on an iPad, where the map is always showing on the right.)
+    if (id && !wide()) $("#mapCard").scrollIntoView({ behavior: "smooth", block: "center" });
+    // With an iPad or laptop keyboard, jump straight to the table number box (and back to search when done).
+    if (wide()) (id ? $("#assignTable") : $("#q")).focus();
+    if (wide() && id) $("#assignTable").select();
   }
 
   function renderAssign() {
@@ -142,12 +183,14 @@
     const table = layout.tables.find((t) => t.id === String(tableId).trim());
     if (!table) return SFF.toast(`There is no table "${tableId}" on this map.`);
     const already = students.filter((s) => s.table === table.id && s.id !== student.id).length;
-    const ok = await send("checkin", { id: student.id, table: table.id });
-    if (!ok) return;
+    // Show it as done right away so the desk can move on to the next scholar; the save happens behind the scenes.
+    student.table = table.id;
+    student.checkedInAt = Date.now();
+    student.by = deskName;
     SFF.toast(`${student.name} → table ${table.id}` + (already >= table.capacity ? ` (now ${already + 1} at a table for ${table.capacity})` : ""));
-    select(null);
     $("#q").value = "";
-    renderList();
+    select(null);
+    await send("checkin", { id: student.id, table: table.id, by: deskName }); // reloads the list, or shows the error
   }
 
   function tableTapped(tableId) {
@@ -170,16 +213,21 @@
   $("#assignCancel").addEventListener("click", () => select(null));
 
   $("#q").addEventListener("input", renderList);
+  // Enter in the search box picks the first scholar in the list.
+  $("#q").addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const first = $("#results li");
+    if (first) first.click();
+  });
   $("#tabs").addEventListener("click", (e) => {
     if (!e.target.dataset.f) return;
     filter = e.target.dataset.f;
     for (const b of $("#tabs").children) b.classList.toggle("on", b === e.target);
     renderList();
   });
-  $("#zoom").addEventListener("click", () => {
-    const zoomed = $("#map").classList.toggle("zoom");
-    $("#zoom").textContent = zoomed ? "Whole room" : "Zoom in";
-  });
+  $("#zoomIn").addEventListener("click", () => map.zoomIn());
+  $("#zoomOut").addEventListener("click", () => map.zoomOut());
+  $("#zoomAll").addEventListener("click", () => map.wholeRoom());
   $("#event").addEventListener("change", () => {
     eventId = $("#event").value;
     openEvent();
@@ -187,7 +235,7 @@
 
   $("#addForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const body = { name: $("#addName").value, grade: $("#addGrade").value, category: $("#addCategory").value };
+    const body = { name: $("#addName").value, number: $("#addNumber").value, grade: $("#addGrade").value, category: $("#addCategory").value };
     if (await send("students", body)) {
       SFF.toast("Added " + body.name);
       e.target.reset();
@@ -247,6 +295,7 @@
     const iName = col("scholar name", "student name", "full name", "name");
     const iFirst = col("first");
     const iLast = col("last");
+    const iNumber = col("project number", "project #", "project id", "number", "no.", "id");
     const iGrade = col("grade");
     const iCategory = col("category", "type");
     const iTitle = col("title", "project");
@@ -254,6 +303,7 @@
     const get = (r, i) => (i >= 0 && r[i] ? r[i].trim() : "");
     return rows.slice(1).map((r) => ({
       name: iFirst >= 0 && iLast >= 0 ? `${get(r, iFirst)} ${get(r, iLast)}`.trim() : get(r, iName),
+      number: get(r, iNumber).replace(/^#/, ""),
       grade: get(r, iGrade).replace(/^grade\s*/i, ""),
       category: get(r, iCategory),
       title: get(r, iTitle),

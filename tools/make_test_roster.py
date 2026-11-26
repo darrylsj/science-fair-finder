@@ -72,6 +72,11 @@ def make_roster(layout, seed):
                 "section": t["section"],
             })
     roster.sort(key=lambda s: s["name"])
+    # Give every project a number, like the ones on the judging sheets.
+    numbers = list(range(101, 101 + len(roster)))
+    rng.shuffle(numbers)
+    for scholar, number in zip(roster, numbers):
+        scholar["number"] = str(number)
     return roster
 
 

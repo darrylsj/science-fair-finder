@@ -60,6 +60,18 @@ export class FairRoom extends DurableObject {
       );
       CREATE INDEX IF NOT EXISTS students_event ON students (event);
     `);
+    // Added later: who did the check-in (several people can run the desk at once).
+    try {
+      this.sql.exec("ALTER TABLE students ADD COLUMN checked_in_by TEXT");
+    } catch {
+      // column already exists
+    }
+    // Added later: the project number printed on the judging sheet.
+    try {
+      this.sql.exec("ALTER TABLE students ADD COLUMN project_no TEXT NOT NULL DEFAULT ''");
+    } catch {
+      // column already exists
+    }
     this.failedLogins = new Map(); // visitor address -> times of recent wrong codes
     // Lets phones keep their live connection open without waking the database.
     this.ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair("ping", "pong"));
@@ -95,7 +107,7 @@ export class FairRoom extends DurableObject {
   listStudents(event) {
     return this.sql
       .exec(
-        `SELECT id, name, grade, category, title, section, table_id AS "table", checked_in_at AS checkedInAt
+        `SELECT id, project_no AS number, name, grade, category, title, section, table_id AS "table", checked_in_at AS checkedInAt, checked_in_by AS "by"
          FROM students WHERE event = ? ORDER BY name COLLATE NOCASE`,
         event
       )
@@ -126,9 +138,10 @@ export class FairRoom extends DurableObject {
     if (!name) return false;
     const table = clean(row.table, 12) || null;
     this.sql.exec(
-      `INSERT INTO students (event, name, grade, category, title, section, table_id, checked_in_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO students (event, project_no, name, grade, category, title, section, table_id, checked_in_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       event,
+      clean(row.number, 16),
       name,
       clean(row.grade, 12),
       clean(row.category, 40),
@@ -204,9 +217,10 @@ export class FairRoom extends DurableObject {
       const existing = this.sql.exec("SELECT id FROM students WHERE id = ? AND event = ?", id, event).toArray();
       if (existing.length === 0) return json({ error: "Scholar not found." }, 404);
       this.sql.exec(
-        "UPDATE students SET table_id = ?, checked_in_at = ? WHERE id = ?",
+        "UPDATE students SET table_id = ?, checked_in_at = ?, checked_in_by = ? WHERE id = ?",
         table,
         table ? Date.now() : null,
+        table ? clean(body.by, 30) || null : null,
         id
       );
       this.broadcast(event);
@@ -266,7 +280,7 @@ export class FairRoom extends DurableObject {
 
     // Clear every check-in but keep the roster.
     if (action === "reset" && method === "POST") {
-      this.sql.exec("UPDATE students SET table_id = NULL, checked_in_at = NULL WHERE event = ?", event);
+      this.sql.exec("UPDATE students SET table_id = NULL, checked_in_at = NULL, checked_in_by = NULL WHERE event = ?", event);
       this.broadcast(event);
       return json({ ok: true });
     }

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Judge QR poster - GSP Science Fair Finder</title>
+<style>
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #14213d; background: #f5f6f8; }
+  .sheet { max-width: 7.5in; margin: 20px auto; background: #fff; padding: 0.5in; text-align: center; border-radius: 14px; }
+  img.logo { height: 1.3in; }
+  h1 { font-size: 40px; margin: 18px 0 6px; }
+  p.lead { font-size: 21px; margin: 0 0 18px; color: #3d4759; }
+  #qr svg { width: 4.3in; height: 4.3in; max-width: 100%; }
+  ol { text-align: left; display: inline-block; font-size: 19px; line-height: 1.6; margin: 14px 0 6px; }
+  .url { font-size: 15px; color: #5b6577; word-break: break-all; }
+  .bar { text-align: center; margin: 16px; }
+  .bar button { font: inherit; font-weight: 650; padding: 12px 20px; border-radius: 12px; border: 0; background: #0b6e4f; color: #fff; }
+  .warn { color: #b42318; font-size: 15px; }
+  @media print { body { background: #fff; } .bar { display: none; } .sheet { margin: 0 auto; border-radius: 0; } }
+</style>
+</head>
+<body>
+<div class="bar"><button onclick="print()">Print this poster</button></div>
+<div class="sheet">
+  <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program">
+  <h1>Find your scholars</h1>
+  <p class="lead">Judges: scan to see every scholar's table on the gym map.</p>
+  <div id="qr"></div>
+  <ol>
+    <li>Point your phone camera at the square.</li>
+    <li>Tap the link that pops up.</li>
+    <li>Type a name, project number or project.</li>
+  </ol>
+  <p class="url" id="url"></p>
+  <p class="warn" id="warn"></p>
+</div>
+<script src="/js/vendor/qrcode.js"></script>
+<script>
+  // The judge code arrives after the # in this page's address and is built into the QR code.
+  const match = location.hash.match(/code=([^&]+)/);
+  const code = match ? decodeURIComponent(match[1]) : "";
+  const link = location.origin + "/#code=" + encodeURIComponent(code);
+  if (!code) {
+    document.getElementById("warn").textContent = "No judge code given. Open this page from the check-in desk (Judge QR code).";
+  } else {
+    const qr = qrcode(0, "M"); // 0 = pick the size automatically, M = medium error correction
+    qr.addData(link);
+    qr.make();
+    document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 8, margin: 4, scalable: true });
+    document.getElementById("url").textContent = location.origin + "  ·  judge code: " + code;
+  }
+</script>
+</body>
+</html>

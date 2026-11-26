@@ -11,7 +11,8 @@
 </head>
 <body>
 <header class="top">
-  <h1>Science Fair Finder <small>Greene Scholars Program</small></h1>
+  <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program" width="564" height="384">
+  <h1>Science Fair Finder <small>For judges</small></h1>
   <select id="event" aria-label="Science fair"></select>
 </header>
 <div id="demo" class="demo" hidden></div>
@@ -28,11 +29,13 @@
     <p class="hint">The code keeps scholar names visible to judges and volunteers only.</p>
   </section>
 
-  <div id="app" hidden>
+  <div id="app" class="cols" hidden>
+   <div class="side">
     <section class="card">
-      <input id="q" type="search" placeholder="Scholar name" autocomplete="off" autocapitalize="words" aria-label="Search for a scholar by name">
+      <input id="q" type="search" placeholder="Name, project number or project" autocomplete="off" autocapitalize="none" aria-label="Search by scholar name, project number or project title">
       <ul id="results" class="results"></ul>
-      <p id="noMatch" class="hint" hidden>No scholar matches that. Try just the first or last name.</p>
+      <p id="noMatch" class="hint" hidden>Nothing matches that. Try just part of the name, the project number, or one word from the project title.</p>
+      <p id="howTo" class="hint">Type part of a name, a project number, or a word from the project title. The table lights up on the map.</p>
     </section>
 
     <section id="found" class="card found" hidden>
@@ -44,18 +47,31 @@
       </div>
     </section>
 
-    <section class="card">
+    <section id="mineCard" class="card after" hidden>
+      <h2>My scholars</h2>
+      <div id="mine" class="mine"></div>
+      <p class="hint">Everyone you look up is kept here on this phone, so their tables are one tap away.</p>
+    </section>
+
+    <div class="status after"><span id="dot" class="dot"></span><span id="status">Connecting...</span></div>
+    <p class="hint after"><a href="#" id="signout">Use a different code</a> &middot; <a href="/admin.html">Check-in desk</a></p>
+   </div>
+
+   <div class="mapcol">
+    <section class="card" id="mapCard">
       <div class="mapbar">
         <h2 id="mapTitle">Map</h2>
-        <button id="zoom" class="btn ghost small" type="button">Zoom in</button>
+        <div class="zoomer">
+          <button id="zoomOut" type="button" aria-label="Zoom out">&minus;</button>
+          <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
+          <button id="zoomAll" class="wide" type="button" disabled>Whole room</button>
+        </div>
       </div>
       <div id="map" class="mapwrap"></div>
       <div id="legend" class="legend"></div>
-      <p id="tableInfo" class="hint">Tap a table to see who is there.</p>
+      <p id="tableInfo" class="hint">Pinch or double-tap the map to zoom. Tap a table to see who is there.</p>
     </section>
-
-    <div class="status"><span id="dot" class="dot"></span><span id="status">Connecting...</span></div>
-    <p class="hint"><a href="#" id="signout">Use a different code</a> &middot; <a href="/admin.html">Check-in desk</a></p>
+   </div>
   </div>
 </main>
 

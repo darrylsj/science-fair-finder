@@ -2,14 +2,16 @@
 
 A phone-friendly web page for the Greene Scholars Program (GSP) science fair.
 
-- **Judges** open the site, type a scholar's name, and see the table number lit up on a map of the gym.
+- **Judges** open one link, type part of a scholar's name, a project number, or a word from the project title, and see the table lit up on a map of the gym.
 - **The check-in desk** (`/admin.html`) picks a scholar and taps the table they set up at. Every judge's phone updates within a second or two.
 
-It currently ships with three test maps, redrawn from the layout files in the GSP Science Fair Google Drive.
+It ships with four maps, redrawn from the GSP layout drawings (the Bellarmine originals are in `docs/source-maps/`).
+The map supports pinch, drag and double-tap zoom, and on an iPad held sideways the list and map sit side by side.
 
 | Fair | Venue | Tables | Notes |
 |---|---|---|---|
-| 2026 | Bellarmine gym | 46 | default |
+| 2027 | Bellarmine gym | 46 | default; draft copy of the 2026 map until the 2027 drawing exists |
+| 2026 | Bellarmine gym | 46 | the reference map |
 | 2025 | Bellarmine gym | 36 | numbered in a snake |
 | 2023 | Emmanuel Baptist FLC | 38 | the original drawing had no table numbers, so these are made up |
 
@@ -41,11 +43,12 @@ The site starts in **test mode** (yellow banner): codes are `judge-demo` and `ad
 In Cloudflare open the Worker, then **Settings > Variables and Secrets**, and add two **secrets**:
 
 - `JUDGE_CODE` - printed in the judge packet (something like `gsp-rocket-27`)
-- `ADMIN_CODE` - long and private, for the check-in desk only
+- `ADMIN_CODE` - the check-in desk password, shared only by the one or two people entering scholars
 
 Once both exist the yellow banner disappears, the demo codes stop working, and roster upload turns on.
 
-Judges can skip typing the code with a link or QR code like this (the part after `#` never leaves the phone):
+Judges do not type anything: on the check-in page open **Judge QR code**, enter the judge code, and print the poster.
+The QR code holds a link like this (the part after `#` never leaves the phone):
 
 ```
 https://YOUR-SITE/#code=gsp-rocket-27
@@ -54,18 +57,18 @@ https://YOUR-SITE/#code=gsp-rocket-27
 ## On fair day
 
 1. Open `/admin.html`, enter the admin code, open **Roster tools** and upload the roster CSV
-   (columns: `name`, `grade`, `category`, `title`, optional `table`).
+   (columns: `name`, `number`, `grade`, `category`, `title`, optional `table`).
 2. As each scholar sets up: find their name, tap their table on the map.
 3. Judges search by name. "Not here yet" turns into a table number by itself when the scholar is checked in.
 
-## Change a map or add 2027
+## Change a map or add a year
 
 ```
 python3 tools/build_layouts.py
 python3 tools/make_test_roster.py
 ```
 
-Open `tools/build_layouts.py`, copy `make_2026()` to `make_2027()`, move the tables to match the new drawing
+Open `tools/build_layouts.py`. For 2027, replace the body of `make_2027()` with its own table list (copy `make_2026()` as a start) and move the tables to match the new drawing
 (positions are in feet from the top-left corner), add it to `LAYOUTS`, run the two commands, and push to GitHub.
 
 ## Try it on your own computer (optional)

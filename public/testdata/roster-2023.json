@@ -4,937 +4,1071 @@
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Solar oven efficiency",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "234"
  },
  {
   "name": "Aaliyah Placeholder",
   "grade": "9",
   "category": "Expo - Environmental",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "159"
  },
  {
   "name": "Aaliyah Sandbox",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - A low-cost air quality sensor",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "102"
  },
  {
   "name": "Aaliyah Testerman",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "120"
  },
  {
   "name": "Amara Sampleton",
   "grade": "8",
   "category": "Expo - Invention",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "195"
  },
  {
   "name": "Amara Testerman",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "177"
  },
  {
   "name": "Andre Betaworth",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "194"
  },
  {
   "name": "Andre Draftman",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "223"
  },
  {
   "name": "Andre Sampleton",
   "grade": "9",
   "category": "Expo - Environmental",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "144"
  },
  {
   "name": "Asha Exampleby",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grades 9-10"
+  "section": "Grades 9-10",
+  "number": "150"
  },
  {
   "name": "Asha Sampleton",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "203"
  },
  {
   "name": "Asha Sandbox",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "145"
  },
  {
   "name": "Asha Specimen",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Rainwater capture for school gardens",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "149"
  },
  {
   "name": "Ayana Mockford",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "147"
  },
  {
   "name": "Ayana Prototype",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "174"
  },
  {
   "name": "Ayana Testerman",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Wind turbine blade angles",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "115"
  },
  {
   "name": "Caleb Prototype",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "193"
  },
  {
   "name": "Darius Demoson",
   "grade": "8",
   "category": "Expo - Invention",
   "title": "TEST - An app that reminds you to drink water",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "103"
  },
  {
   "name": "Darius Mockford",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "183"
  },
  {
   "name": "Darius Placeholder",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "218"
  },
  {
   "name": "Darius Specimen",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "160"
  },
  {
   "name": "Darius Testwell",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "215"
  },
  {
   "name": "Desmond Betaworth",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "130"
  },
  {
   "name": "Desmond Dummont",
   "grade": "9",
   "category": "Expo - Environmental",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "186"
  },
  {
   "name": "Desmond Rehearsal",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "227"
  },
  {
   "name": "Desmond Sampleton",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "157"
  },
  {
   "name": "Devon Fakewood",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "162"
  },
  {
   "name": "Devon Sandbox",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grades 4-5"
+  "section": "Grades 4-5",
+  "number": "173"
  },
  {
   "name": "Devon Testerman",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Solar oven efficiency",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "226"
  },
  {
   "name": "Ebony Sampleton",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "199"
  },
  {
   "name": "Ebony Sandbox",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "221"
  },
  {
   "name": "Ebony Testerman",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "225"
  },
  {
   "name": "Elijah Mockford",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "220"
  },
  {
   "name": "Elijah Pilotte",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "168"
  },
  {
   "name": "Elijah Practise",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "206"
  },
  {
   "name": "Elijah Testwell",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Rainwater capture for school gardens",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "187"
  },
  {
   "name": "Imani Fakewood",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "216"
  },
  {
   "name": "Imani Pilotte",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "118"
  },
  {
   "name": "Imani Placeholder",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Rainwater capture for school gardens",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "137"
  },
  {
   "name": "Imani Sampleton",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Growing crystals faster",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "166"
  },
  {
   "name": "Imani Specimen",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "176"
  },
  {
   "name": "Imani Testwell",
   "grade": "9",
   "category": "Expo - Invention",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "148"
  },
  {
   "name": "Isaiah Fakewood",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "122"
  },
  {
   "name": "Isaiah Pilotte",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "135"
  },
  {
   "name": "Isaiah Practise",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "128"
  },
  {
   "name": "Isaiah Stubbs",
   "grade": "7",
   "category": "Expo",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Env & Inv"
+  "section": "Expo - Env & Inv",
+  "number": "231"
  },
  {
   "name": "Jada Betaworth",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "192"
  },
  {
   "name": "Jada Specimen",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "190"
  },
  {
   "name": "Jada Stubbs",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - A low-cost air quality sensor",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "113"
  },
  {
   "name": "Jalen Draftman",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "207"
  },
  {
   "name": "Jalen Practise",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "119"
  },
  {
   "name": "Jalen Sampleton",
   "grade": "10",
   "category": "Expo - Invention",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "155"
  },
  {
   "name": "Jalen Sandbox",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Solar oven efficiency",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "185"
  },
  {
   "name": "Jalen Stubbs",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Does music help plants grow?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "179"
  },
  {
   "name": "Jordan Practise",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "222"
  },
  {
   "name": "Jordan Rehearsal",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "156"
  },
  {
   "name": "Jordan Specimen",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "105"
  },
  {
   "name": "Josiah Betaworth",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "212"
  },
  {
   "name": "Josiah Fakewood",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grades 7-8"
+  "section": "Grades 7-8",
+  "number": "152"
  },
  {
   "name": "Josiah Specimen",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "151"
  },
  {
   "name": "Kenya Draftman",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Grade 7"
+  "section": "Grade 7",
+  "number": "201"
  },
  {
   "name": "Kenya Exampleby",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "134"
  },
  {
   "name": "Kenya Prototype",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "232"
  },
  {
   "name": "Kenya Testerman",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "209"
  },
  {
   "name": "Kiara Exampleby",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grades 7-8"
+  "section": "Grades 7-8",
+  "number": "123"
  },
  {
   "name": "Kiara Placeholder",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "219"
  },
  {
   "name": "Kiara Practise",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "214"
  },
  {
   "name": "Kiara Sampleton",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - A low-cost air quality sensor",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "228"
  },
  {
   "name": "Kofi Demoson",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "161"
  },
  {
   "name": "Kofi Draftman",
   "grade": "8",
   "category": "Expo",
   "title": "TEST - Does music help plants grow?",
-  "section": "Expo - Env & Inv"
+  "section": "Expo - Env & Inv",
+  "number": "230"
  },
  {
   "name": "Kofi Placeholder",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "208"
  },
  {
   "name": "Kofi Specimen",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "198"
  },
  {
   "name": "Kofi Testerman",
   "grade": "9",
   "category": "Expo - Environmental",
   "title": "TEST - Composting with worms",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "109"
  },
  {
   "name": "Laila Draftman",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "112"
  },
  {
   "name": "Laila Dummont",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "126"
  },
  {
   "name": "Laila Fakewood",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "191"
  },
  {
   "name": "Laila Stubbs",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "138"
  },
  {
   "name": "Laila Trialby",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "106"
  },
  {
   "name": "Langston Dryrun",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "101"
  },
  {
   "name": "Langston Pilotte",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Solar oven efficiency",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "129"
  },
  {
   "name": "Langston Specimen",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "172"
  },
  {
   "name": "Malik Betaworth",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "167"
  },
  {
   "name": "Malik Exampleby",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "142"
  },
  {
   "name": "Malik Pilotte",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Does music help plants grow?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "213"
  },
  {
   "name": "Malik Practise",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "125"
  },
  {
   "name": "Malik Sandbox",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "224"
  },
  {
   "name": "Malik Stubbs",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "202"
  },
  {
   "name": "Malik Testerman",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "180"
  },
  {
   "name": "Marcus Betaworth",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "133"
  },
  {
   "name": "Marcus Fakewood",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "108"
  },
  {
   "name": "Marcus Testwell",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "188"
  },
  {
   "name": "Marcus Trialby",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "210"
  },
  {
   "name": "Maya Pilotte",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "196"
  },
  {
   "name": "Maya Testerman",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "104"
  },
  {
   "name": "Maya Trialby",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "124"
  },
  {
   "name": "Micah Prototype",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - A backpack that charges your phone",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "181"
  },
  {
   "name": "Micah Specimen",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "136"
  },
  {
   "name": "Miles Fakewood",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Wind turbine blade angles",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "116"
  },
  {
   "name": "Naomi Fakewood",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "233"
  },
  {
   "name": "Naomi Sandbox",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Rainwater capture for school gardens",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "211"
  },
  {
   "name": "Nia Testerman",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "170"
  },
  {
   "name": "Nyla Mockford",
   "grade": "8",
   "category": "Expo",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Expo - Env & Inv"
+  "section": "Expo - Env & Inv",
+  "number": "164"
  },
  {
   "name": "Omari Exampleby",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "169"
  },
  {
   "name": "Omari Mockford",
   "grade": "10",
   "category": "Expo - Invention",
   "title": "TEST - Solar oven efficiency",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "204"
  },
  {
   "name": "Omari Placeholder",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "229"
  },
  {
   "name": "Omari Sampleton",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grades 9-10"
+  "section": "Grades 9-10",
+  "number": "158"
  },
  {
   "name": "Sade Demoson",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - An app that reminds you to drink water",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "114"
  },
  {
   "name": "Sade Dryrun",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "197"
  },
  {
   "name": "Selam Betaworth",
   "grade": "9",
   "category": "Expo",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Expo - Env & Inv"
+  "section": "Expo - Env & Inv",
+  "number": "111"
  },
  {
   "name": "Selam Prototype",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - An app that reminds you to drink water",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "205"
  },
  {
   "name": "Selam Testerman",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "200"
  },
  {
   "name": "Simone Betaworth",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "143"
  },
  {
   "name": "Simone Draftman",
   "grade": "10",
   "category": "Expo - Invention",
   "title": "TEST - Solar oven efficiency",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "153"
  },
  {
   "name": "Simone Mockford",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grade 4"
+  "section": "Grade 4",
+  "number": "182"
  },
  {
   "name": "Simone Testerman",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grades 4-5"
+  "section": "Grades 4-5",
+  "number": "140"
  },
  {
   "name": "Simone Testwell",
   "grade": "9",
   "category": "Expo - Invention",
   "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Expo - Invention"
+  "section": "Expo - Invention",
+  "number": "163"
  },
  {
   "name": "Tariq Dummont",
   "grade": "4",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grades 4-5"
+  "section": "Grades 4-5",
+  "number": "141"
  },
  {
   "name": "Thandi Stubbs",
   "grade": "10",
   "category": "Expo - Environmental",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "117"
  },
  {
   "name": "Trey Pilotte",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "189"
  },
  {
   "name": "Trey Placeholder",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "217"
  },
  {
   "name": "Trey Prototype",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "110"
  },
  {
   "name": "Trey Rehearsal",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "184"
  },
  {
   "name": "Trey Trialby",
   "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Composting with worms",
-  "section": "Grades 7-8"
+  "section": "Grades 7-8",
+  "number": "154"
  },
  {
   "name": "Xavier Demoson",
   "grade": "10",
   "category": "Expo - Environmental",
   "title": "TEST - A low-cost air quality sensor",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "121"
  },
  {
   "name": "Xavier Prototype",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "178"
  },
  {
   "name": "Xavier Specimen",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 8"
+  "section": "Grade 8",
+  "number": "132"
  },
  {
   "name": "Xavier Testerman",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - An app that reminds you to drink water",
-  "section": "Grades 9-10"
+  "section": "Grades 9-10",
+  "number": "107"
  },
  {
   "name": "Zora Prototype",
   "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Grade 10"
+  "section": "Grade 10",
+  "number": "175"
  },
  {
   "name": "Zora Sampleton",
   "grade": "9",
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 9"
+  "section": "Grade 9",
+  "number": "171"
  },
  {
   "name": "Zora Stubbs",
   "grade": "6",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
-  "section": "Grade 6"
+  "section": "Grade 6",
+  "number": "165"
  },
  {
   "name": "Zora Testerman",
   "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grade 5"
+  "section": "Grade 5",
+  "number": "139"
  },
  {
   "name": "Zuri Betaworth",
   "grade": "12",
   "category": "Senior Board",
   "title": "TEST - How salt changes the freezing point of water",
-  "section": "Seniors"
+  "section": "Seniors",
+  "number": "131"
  },
  {
   "name": "Zuri Dummont",
   "grade": "3",
   "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Grade 3"
+  "section": "Grade 3",
+  "number": "127"
  },
  {
   "name": "Zuri Pilotte",
   "grade": "10",
   "category": "Expo - Environmental",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Expo - Environmental"
+  "section": "Expo - Environmental",
+  "number": "146"
  }
 ]

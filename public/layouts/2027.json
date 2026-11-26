@@ -1,0 +1,583 @@
+{
+ "id": "2027",
+ "name": "2027 - Bellarmine Gym",
+ "venue": "Bellarmine College Preparatory gym",
+ "date": "2027-01-23",
+ "width": 104.25,
+ "height": 69.0,
+ "tables": [
+  {
+   "id": "1",
+   "x": 5.5,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 3",
+   "color": "#16b877",
+   "capacity": 4
+  },
+  {
+   "id": "2",
+   "x": 14.0,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 3",
+   "color": "#16b877",
+   "capacity": 4
+  },
+  {
+   "id": "3",
+   "x": 5.5,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 3",
+   "color": "#16b877",
+   "capacity": 4
+  },
+  {
+   "id": "4",
+   "x": 14.0,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "5",
+   "x": 5.5,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "6",
+   "x": 14.0,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "7",
+   "x": 5.5,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "8",
+   "x": 14.0,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "9",
+   "x": 22.5,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "10",
+   "x": 31.0,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grade 4",
+   "color": "#f43f6b",
+   "capacity": 4
+  },
+  {
+   "id": "11",
+   "x": 22.5,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
+   "capacity": 4
+  },
+  {
+   "id": "12",
+   "x": 31.0,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
+   "capacity": 4
+  },
+  {
+   "id": "13",
+   "x": 39.4,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
+   "capacity": 4
+  },
+  {
+   "id": "14",
+   "x": 22.5,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
+   "capacity": 4
+  },
+  {
+   "id": "15",
+   "x": 31.0,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
+   "capacity": 4
+  },
+  {
+   "id": "16",
+   "x": 39.4,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffe97a",
+   "capacity": 4
+  },
+  {
+   "id": "17",
+   "x": 22.5,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffe97a",
+   "capacity": 4
+  },
+  {
+   "id": "18",
+   "x": 31.0,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffe97a",
+   "capacity": 4
+  },
+  {
+   "id": "19",
+   "x": 39.4,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffe97a",
+   "capacity": 4
+  },
+  {
+   "id": "20",
+   "x": 39.4,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 5-6",
+   "color": "#ffe97a",
+   "capacity": 4
+  },
+  {
+   "id": "21",
+   "x": 48.0,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
+   "capacity": 4
+  },
+  {
+   "id": "22",
+   "x": 56.5,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
+   "capacity": 4
+  },
+  {
+   "id": "23",
+   "x": 48.0,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
+   "capacity": 4
+  },
+  {
+   "id": "24",
+   "x": 56.5,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
+   "capacity": 4
+  },
+  {
+   "id": "25",
+   "x": 48.0,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#7b5cf0",
+   "capacity": 4
+  },
+  {
+   "id": "26",
+   "x": 56.5,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#7b5cf0",
+   "capacity": 4
+  },
+  {
+   "id": "27",
+   "x": 48.0,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#7b5cf0",
+   "capacity": 4
+  },
+  {
+   "id": "28",
+   "x": 56.5,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 7-8",
+   "color": "#7b5cf0",
+   "capacity": 4
+  },
+  {
+   "id": "29",
+   "x": 65.5,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "30",
+   "x": 74.0,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "31",
+   "x": 65.5,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "32",
+   "x": 74.0,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "33",
+   "x": 65.5,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "34",
+   "x": 74.0,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Grades 9-10",
+   "color": "#ffffff",
+   "capacity": 4
+  },
+  {
+   "id": "35",
+   "x": 83.9,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Environmental",
+   "color": "#e3e6ea",
+   "capacity": 4
+  },
+  {
+   "id": "36",
+   "x": 92.0,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Environmental",
+   "color": "#e3e6ea",
+   "capacity": 4
+  },
+  {
+   "id": "37",
+   "x": 99.9,
+   "y": 16.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Environmental",
+   "color": "#e3e6ea",
+   "capacity": 4
+  },
+  {
+   "id": "38",
+   "x": 83.9,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Environmental",
+   "color": "#e3e6ea",
+   "capacity": 4
+  },
+  {
+   "id": "39",
+   "x": 92.0,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "40",
+   "x": 99.9,
+   "y": 30.7,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "41",
+   "x": 83.9,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "42",
+   "x": 92.0,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "43",
+   "x": 99.9,
+   "y": 47.5,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "44",
+   "x": 83.9,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "45",
+   "x": 92.0,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  },
+  {
+   "id": "46",
+   "x": 99.9,
+   "y": 61.6,
+   "w": 2.5,
+   "h": 8.0,
+   "section": "Expo - Invention",
+   "color": "#16181d",
+   "capacity": 4
+  }
+ ],
+ "labels": [
+  {
+   "text": "Grade 3",
+   "x": 9.7,
+   "y": 9.6,
+   "color": "#16b877"
+  },
+  {
+   "text": "Grade 4",
+   "x": 9.7,
+   "y": 39.4,
+   "color": "#f43f6b"
+  },
+  {
+   "text": "Grades 5-6",
+   "x": 31.0,
+   "y": 9.6,
+   "color": "#e8833f"
+  },
+  {
+   "text": "Grades 7-8",
+   "x": 52.2,
+   "y": 9.6
+  },
+  {
+   "text": "Grades 9-10",
+   "x": 69.7,
+   "y": 9.6
+  },
+  {
+   "text": "Expo - Envir",
+   "x": 91.9,
+   "y": 9.6,
+   "size": 2.0
+  },
+  {
+   "text": "Expo - Invent",
+   "x": 91.9,
+   "y": 40.5,
+   "size": 2.0
+  }
+ ],
+ "desks": [
+  {
+   "text": "Scholar/Judge Support",
+   "x": 50.4,
+   "y": 2.9,
+   "w": 8.0,
+   "h": 2.4
+  }
+ ],
+ "doors": [
+  {
+   "side": "left",
+   "at": 4.9
+  },
+  {
+   "side": "right",
+   "at": 4.9
+  },
+  {
+   "side": "left",
+   "at": 35.3
+  },
+  {
+   "side": "right",
+   "at": 35.3
+  }
+ ],
+ "lines": [
+  [
+   18.3,
+   10.4,
+   18.3,
+   54.6,
+   "#ffab7a"
+  ],
+  [
+   18.3,
+   54.9,
+   34.6,
+   54.9,
+   "#f43f6b"
+  ],
+  [
+   34.8,
+   55.2,
+   34.8,
+   67.5,
+   "#ffab7a"
+  ],
+  [
+   43.8,
+   10.6,
+   43.8,
+   68.0,
+   "#6b7280"
+  ],
+  [
+   60.8,
+   11.5,
+   60.8,
+   68.0,
+   "#6b7280"
+  ],
+  [
+   79.5,
+   11.5,
+   79.5,
+   68.0,
+   "#6b7280"
+  ]
+ ]
+}

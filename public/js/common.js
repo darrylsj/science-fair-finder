@@ -46,20 +46,33 @@ const SFF = (() => {
       .trim();
   }
 
-  // Every word typed must appear in the scholar's name (or project title / table number).
+  // Partial search. Every word typed must match the scholar somewhere:
+  // the start of their project number, any part of their name, or any part of the project title.
+  // "zor", "wood", "112", "solar ov" and "table 45" all work.
   function search(students, query) {
-    const words = normalize(query).split(" ").filter(Boolean);
-    if (words.length === 0) return [];
+    let text = normalize(query).replace(/#/g, "");
+    let tableWanted = null;
+    const tableMatch = text.match(/\b(?:table|tbl)\s*(\w+)/);
+    if (tableMatch) {
+      tableWanted = tableMatch[1];
+      text = text.replace(tableMatch[0], " ");
+    }
+    const words = text.split(" ").filter(Boolean);
+    if (words.length === 0 && !tableWanted) return [];
     const scored = [];
     for (const s of students) {
+      if (tableWanted && String(s.table || "") !== tableWanted) continue;
       const name = normalize(s.name);
-      const extra = normalize(s.title) + " table " + (s.table || "");
+      const title = normalize(s.title);
+      const number = normalize(s.number);
       let score = 0;
       let ok = true;
       for (const word of words) {
-        if (name.split(" ").some((part) => part.startsWith(word))) score += 3;
+        if (number && number === word) score += 6;
+        else if (number && number.startsWith(word)) score += 4;
+        else if (name.split(" ").some((part) => part.startsWith(word))) score += 3;
         else if (name.includes(word)) score += 2;
-        else if (extra.includes(word)) score += 1;
+        else if (title.includes(word)) score += 1;
         else {
           ok = false;
           break;
@@ -251,7 +264,7 @@ const SFF = (() => {
       g.appendChild(el("title", {}, `Table ${t.id} - ${t.section}`));
       g.appendChild(el("rect", { class: "body", x: t.x - w / 2, y: t.y - h / 2, width: w, height: h, rx: 0.8, fill: t.color }));
       g.appendChild(el("text", { x: t.x, y: t.y + 1.35, "text-anchor": "middle", "font-size": 3.7, fill: textColorFor(t.color) }, t.id));
-      g.addEventListener("click", () => options.onTable && options.onTable(t.id));
+      g.addEventListener("click", () => !justDragged && options.onTable && options.onTable(t.id));
       svg.appendChild(g);
       groups[t.id] = { g, t, w, h };
     }
@@ -261,9 +274,138 @@ const SFF = (() => {
     holder.innerHTML = "";
     holder.appendChild(svg);
 
+    // ----- pinch, drag and zoom -----
+    // We zoom by changing which part of the room the picture shows (its "viewBox").
+    const full = { x: -1.5, y: -1.5, w: W + 3, h: H + 3 };
+    let view = { ...full };
+    const MAX_ZOOM = 6;
+    let justDragged = false; // so a drag or pinch is not mistaken for a tap on a table
+    let animation = null;
+
+    function setView(next) {
+      const w = Math.min(full.w, Math.max(full.w / MAX_ZOOM, next.w));
+      const h = (w * full.h) / full.w;
+      view = {
+        w,
+        h,
+        x: Math.min(full.x + full.w - w, Math.max(full.x, next.x)),
+        y: Math.min(full.y + full.h - h, Math.max(full.y, next.y)),
+      };
+      svg.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`);
+      const zoomed = view.w < full.w * 0.98;
+      // Zoomed in: one finger moves the map. Whole room showing: one finger scrolls the page as usual.
+      svg.style.touchAction = zoomed ? "none" : "pan-y";
+      svg.style.cursor = zoomed ? "grab" : "";
+      if (options.onZoom) options.onZoom(zoomed);
+    }
+
+    // Glide smoothly to a new view (used by the buttons and when a scholar is found).
+    function glideTo(target) {
+      cancelAnimationFrame(animation);
+      const from = { ...view };
+      const start = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - start) / 280);
+        const e = 1 - Math.pow(1 - k, 3);
+        setView({ x: from.x + (target.x - from.x) * e, y: from.y + (target.y - from.y) * e, w: from.w + (target.w - from.w) * e });
+        if (k < 1) animation = requestAnimationFrame(step);
+      };
+      animation = requestAnimationFrame(step);
+    }
+
+    // Turn a spot on the screen into a spot in the room (feet).
+    function roomPoint(clientX, clientY) {
+      const box = svg.getBoundingClientRect();
+      return { x: view.x + ((clientX - box.left) / box.width) * view.w, y: view.y + ((clientY - box.top) / box.height) * view.h };
+    }
+
+    // Zoom by `factor` while keeping the room spot under the finger/cursor in place.
+    function zoomAt(factor, clientX, clientY, glide) {
+      const anchor = roomPoint(clientX, clientY);
+      const w = Math.min(full.w, Math.max(full.w / MAX_ZOOM, view.w / factor));
+      const ratio = w / view.w;
+      const target = { w, x: anchor.x - (anchor.x - view.x) * ratio, y: anchor.y - (anchor.y - view.y) * ratio };
+      glide ? glideTo(target) : setView(target);
+    }
+
+    function zoomCenter(factor) {
+      const box = svg.getBoundingClientRect();
+      zoomAt(factor, box.left + box.width / 2, box.top + box.height / 2, true);
+    }
+
+    const fingers = new Map(); // finger id -> where it is on screen
+    let moved = 0;
+    let lastTap = 0;
+
+    svg.addEventListener("pointerdown", (e) => {
+      cancelAnimationFrame(animation);
+      fingers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (fingers.size === 1) moved = 0;
+    });
+    svg.addEventListener("pointermove", (e) => {
+      const before = fingers.get(e.pointerId);
+      if (!before) return;
+      const box = svg.getBoundingClientRect();
+      if (fingers.size === 1) {
+        // One finger (or the mouse): slide the map, but only when zoomed in.
+        if (view.w >= full.w * 0.98) return;
+        const dx = e.clientX - before.x;
+        const dy = e.clientY - before.y;
+        moved += Math.abs(dx) + Math.abs(dy);
+        if (moved > 6 && !svg.hasPointerCapture(e.pointerId)) svg.setPointerCapture(e.pointerId);
+        setView({ w: view.w, x: view.x - (dx / box.width) * view.w, y: view.y - (dy / box.height) * view.h });
+        fingers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      } else if (fingers.size === 2) {
+        // Two fingers: pinch to zoom, and the map follows the midpoint of the fingers.
+        const [a0, b0] = [...fingers.values()];
+        const gap0 = Math.hypot(a0.x - b0.x, a0.y - b0.y);
+        const mid0 = { x: (a0.x + b0.x) / 2, y: (a0.y + b0.y) / 2 };
+        fingers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        const [a1, b1] = [...fingers.values()];
+        const gap1 = Math.hypot(a1.x - b1.x, a1.y - b1.y);
+        const mid1 = { x: (a1.x + b1.x) / 2, y: (a1.y + b1.y) / 2 };
+        moved += 10;
+        const anchor = roomPoint(mid0.x, mid0.y);
+        const w = Math.min(full.w, Math.max(full.w / MAX_ZOOM, (view.w * gap0) / Math.max(gap1, 1)));
+        setView({
+          w,
+          x: anchor.x - ((mid1.x - box.left) / box.width) * w,
+          y: anchor.y - ((mid1.y - box.top) / box.height) * ((w * full.h) / full.w),
+        });
+      }
+    });
+    const lift = (e) => {
+      if (!fingers.delete(e.pointerId)) return;
+      if (fingers.size > 0) return;
+      justDragged = moved > 6;
+      setTimeout(() => (justDragged = false), 60);
+      // Double-tap (or double-click) zooms in on that spot.
+      if (!justDragged && e.type === "pointerup") {
+        const now = Date.now();
+        if (now - lastTap < 320) {
+          zoomAt(2, e.clientX, e.clientY, true);
+          lastTap = 0;
+        } else lastTap = now;
+      }
+    };
+    svg.addEventListener("pointerup", lift);
+    svg.addEventListener("pointercancel", lift);
+    // Trackpad pinch / Ctrl + scroll wheel on a computer.
+    svg.addEventListener("wheel", (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      zoomAt(Math.exp(-e.deltaY * 0.01), e.clientX, e.clientY, false);
+    }, { passive: false });
+    // Stops iPhone/iPad Safari from zooming the whole page when the pinch starts on the map.
+    svg.addEventListener("gesturestart", (e) => e.preventDefault());
+    setView(full);
+
     return {
-      // Light up one table (or pass null to clear).
-      highlight(tableId) {
+      zoomIn: () => zoomCenter(1.6),
+      zoomOut: () => zoomCenter(1 / 1.6),
+      wholeRoom: () => glideTo(full),
+      // Light up one table (or pass null to clear). zoom: true also glides the map to it.
+      highlight(tableId, zoom) {
         overlay.innerHTML = "";
         for (const id in groups) {
           groups[id].g.classList.toggle("hit", id === tableId);
@@ -272,10 +414,11 @@ const SFF = (() => {
         const hit = groups[tableId];
         if (!hit) return;
         overlay.appendChild(el("circle", { class: "pulse", cx: hit.t.x, cy: hit.t.y, r: 7 }));
-        // Scroll the map so the table is in view when zoomed in.
-        const box = holder.getBoundingClientRect();
-        const scale = svg.getBoundingClientRect().width / (W + 3);
-        holder.scrollTo({ left: (hit.t.x + 1.5) * scale - box.width / 2, top: (hit.t.y + 1.5) * scale - box.height / 2, behavior: "smooth" });
+        if (zoom) {
+          // Phones get a closer look than tablets, where the whole room is already readable.
+          const w = full.w / (svg.getBoundingClientRect().width < 520 ? 2.2 : 1.5);
+          glideTo({ w, x: hit.t.x - w / 2, y: hit.t.y - (w * full.h) / full.w / 2 });
+        }
       },
       // Dashed outline on tables in a scholar's grade area (admin page).
       suggest(sectionName) {

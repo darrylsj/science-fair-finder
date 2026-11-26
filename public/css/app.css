@@ -18,17 +18,20 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-size: 16px; 
 button, input, select, textarea { font: inherit; color: inherit; }
 [hidden] { display: none !important; }
 
-.top { background: var(--brand); color: var(--brand-ink); padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
-.top h1 { font-size: 17px; margin: 0; font-weight: 700; letter-spacing: .1px; flex: 1; }
-.top h1 small { display: block; font-weight: 500; font-size: 12px; opacity: .85; }
-.top select { background: rgba(255,255,255,.16); color: #fff; border: 0; border-radius: 9px; padding: 8px 10px; max-width: 46vw; }
-.top select option { color: var(--ink); }
-.top a { color: #fff; font-size: 13px; }
+.top { background: #fff; color: var(--ink); display: flex; align-items: center; gap: 12px; border-bottom: 4px solid var(--brand);
+  padding: calc(10px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left)); }
+.top.desk { border-bottom-color: var(--ink); }
+.top .logo { height: 40px; width: auto; flex: none; }
+.top h1 { font-size: 17px; margin: 0; font-weight: 750; letter-spacing: .1px; flex: 1; min-width: 0; }
+.top h1 small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+.top select { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 8px; max-width: 40vw; font-weight: 600; }
+.top a { color: var(--brand); }
 
 .demo { background: #fff4d6; color: #5c4400; border-bottom: 1px solid #f0d88a; font-size: 13px; padding: 8px 16px; }
 .demo code { background: rgba(0,0,0,.07); padding: 1px 5px; border-radius: 5px; }
 
-main { max-width: 860px; margin: 0 auto; padding: 14px 14px 60px; }
+main { max-width: 860px; margin: 0 auto;
+  padding: 14px calc(14px + env(safe-area-inset-right)) calc(60px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left)); }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; }
 .card h2 { font-size: 16px; margin: 0 0 10px; }
 .hint { color: var(--muted); font-size: 13px; margin: 6px 0 0; }
@@ -72,9 +75,13 @@ input[type=search] { font-size: 18px; }
 
 .mapbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
 .mapbar h2 { margin: 0; }
-.mapwrap { overflow: auto; border: 1px solid var(--line); border-radius: 10px; background: #fbfbfc; -webkit-overflow-scrolling: touch; }
-.mapwrap svg { display: block; width: 100%; height: auto; }
-.mapwrap.zoom svg { width: 220%; }
+.mapwrap { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: #fbfbfc; }
+.mapwrap svg { display: block; width: 100%; height: auto; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.mapwrap svg:active { cursor: grabbing; }
+.zoomer { display: flex; gap: 6px; }
+.zoomer button { width: 44px; height: 44px; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; font-size: 22px; font-weight: 600; line-height: 1; cursor: pointer; }
+.zoomer button.wide { width: auto; padding: 0 12px; font-size: 14px; }
+.zoomer button:disabled { opacity: .4; }
 .map-table { cursor: pointer; }
 .map-table rect.body { stroke: #2b2f36; stroke-width: .18; }
 .map-table text { font-weight: 700; pointer-events: none; }
@@ -102,3 +109,46 @@ input[type=search] { font-size: 18px; }
 details summary { cursor: pointer; font-weight: 650; }
 details .row { margin-top: 10px; }
 textarea { min-height: 110px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+
+/* One column (phones, iPad upright): the map comes right after the answer, tools go last. */
+.cols { display: flex; flex-direction: column; }
+.side { display: contents; }
+.mapcol { order: 2; }
+.side > .after { order: 3; }
+
+/* ---------- iPads and other wide screens: list on the left, big map on the right ---------- */
+@media (min-width: 1000px) {
+  main { max-width: 1400px; padding-top: 18px; }
+  .cols { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; gap: 16px; align-items: start; }
+  .side { display: block; }
+  .mapcol { position: sticky; top: 14px; }
+  .mapcol .card { margin-bottom: 0; }
+  .top h1 { font-size: 21px; }
+  .top h1 small { font-size: 13px; }
+  .top .logo { height: 52px; }
+  .found .big strong { font-size: 46px; }
+  .assign { position: static; }
+  #gate { max-width: 520px; margin: 40px auto; }
+  .legend { font-size: 13px; }
+}
+/* Phones held sideways: keep the header slim so the map gets the room. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .top { padding-top: calc(6px + env(safe-area-inset-top)); padding-bottom: 6px; }
+  .top h1 small { display: none; }
+}
+
+/* ---------- judge: "My scholars" and admin: recent check-ins ---------- */
+.mine { display: flex; flex-wrap: wrap; gap: 8px; }
+.mine button { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 8px 7px 14px; font-size: 14px; cursor: pointer; }
+.mine button b { background: #e6f4ee; color: var(--ok); border-radius: 999px; padding: 2px 9px; }
+.mine button b.wait { background: #fff4d6; color: var(--wait); }
+.mine button.on { border-color: var(--accent); }
+.mine button span.x { color: var(--muted); padding: 0 6px; font-size: 16px; }
+.recent { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.recent li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 2px; border-top: 1px solid var(--line); cursor: pointer; }
+.recent li:first-child { border-top: 0; }
+.recent li span { color: var(--muted); white-space: nowrap; }
+.gate-stack { display: grid; gap: 8px; }
+kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; font-size: 12px; background: #fff; }
+.who em { display: block; font-style: normal; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.who b i { font-style: normal; font-weight: 600; color: var(--muted); font-size: 13px; margin-left: 6px; }

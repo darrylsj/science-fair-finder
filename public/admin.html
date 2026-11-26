@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<header class="top" style="background:#14213d">
+<header class="top desk">
+  <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program" width="564" height="384">
   <h1>Check-in desk <small><a href="/">Judge view</a></small></h1>
   <select id="event" aria-label="Science fair"></select>
 </header>
@@ -18,15 +19,16 @@
 
 <main>
   <section id="gate" class="card" hidden>
-    <h2>Admin code</h2>
+    <h2>Check-in desk password</h2>
     <form id="gateForm" class="field">
-      <input id="code" type="password" autocomplete="off" placeholder="Admin code" aria-label="Admin code">
+      <input id="code" type="password" autocomplete="off" placeholder="Password" aria-label="Check-in desk password">
       <button class="btn">Go</button>
     </form>
     <p id="gateError" class="error"></p>
   </section>
 
-  <div id="app" hidden>
+  <div id="app" class="cols" hidden>
+   <div class="side">
     <!-- Appears when a scholar is picked -->
     <section id="assign" class="assign" hidden>
       <b id="assignName"></b>
@@ -41,7 +43,7 @@
 
     <section class="card">
       <div class="status"><span id="dot" class="dot"></span><span id="status">Connecting...</span></div>
-      <input id="q" type="search" placeholder="Scholar name" autocomplete="off" aria-label="Search scholars">
+      <input id="q" type="search" placeholder="Name or project number" autocomplete="off" aria-label="Search scholars by name or project number">
       <div class="tabs" id="tabs">
         <button data-f="waiting" class="on">Waiting</button>
         <button data-f="seated">Checked in</button>
@@ -49,24 +51,21 @@
       </div>
       <ul id="results" class="results"></ul>
       <p id="more" class="hint"></p>
+      <p class="hint">With a keyboard: type a name, <kbd>Enter</kbd>, type the table number, <kbd>Enter</kbd>.</p>
     </section>
 
-    <section class="card" id="mapCard">
-      <div class="mapbar">
-        <h2 id="mapTitle">Map</h2>
-        <button id="zoom" class="btn ghost small" type="button">Zoom in</button>
-      </div>
-      <div id="map" class="mapwrap"></div>
-      <div id="legend" class="legend"></div>
-      <p id="tableInfo" class="hint">Pick a scholar, then tap their table. The small numbers show how many scholars are at each table.</p>
+    <section class="card after">
+      <h2>Latest check-ins</h2>
+      <ul id="recent" class="recent"></ul>
     </section>
 
-    <section class="card">
+    <section class="card after">
       <details>
         <summary>Add one scholar</summary>
         <form id="addForm">
           <div class="row"><input id="addName" type="text" placeholder="Full name" required></div>
           <div class="row">
+            <input id="addNumber" type="text" placeholder="Project #" style="flex:1;width:auto">
             <input id="addGrade" type="text" placeholder="Grade" style="flex:1;width:auto">
             <input id="addCategory" type="text" placeholder="Category" style="flex:2;width:auto">
           </div>
@@ -75,7 +74,18 @@
       </details>
     </section>
 
-    <section class="card">
+    <section class="card after">
+      <details>
+        <summary>Judge QR code</summary>
+        <p class="hint">Judges scan this with their phone camera and land straight on the finder, already signed in. Print it for the judges' room and the gym doors.</p>
+        <div class="row">
+          <input id="qrCode" type="text" autocomplete="off" autocapitalize="none" placeholder="Judge code" style="flex:1;width:auto" aria-label="Judge code">
+          <button id="qrGo" class="btn small" type="button">Make poster</button>
+        </div>
+      </details>
+    </section>
+
+    <section class="card after">
       <details>
         <summary>Roster tools</summary>
         <div class="row">
@@ -87,7 +97,7 @@
           <button id="clear" class="btn danger small" type="button">Delete this roster</button>
         </div>
         <h2 style="margin-top:18px">Upload the real roster (CSV)</h2>
-        <p class="hint">Columns: <b>name</b> (or first name + last name), grade, category, title, table. Only name is required. Export from Judgify or a Google Sheet, then choose the file or paste it here.</p>
+        <p class="hint">Columns: <b>name</b> (or first name + last name), number, grade, category, title, table. Only name is required. Export from Judgify or a Google Sheet, then choose the file or paste it here.</p>
         <div class="row"><input id="csvFile" type="file" accept=".csv,text/csv"></div>
         <div class="row"><textarea id="csvText" placeholder="name,grade,category,title"></textarea></div>
         <div class="row">
@@ -97,6 +107,23 @@
         <p class="hint"><a href="#" id="signout">Sign out of this device</a></p>
       </details>
     </section>
+   </div>
+
+   <div class="mapcol">
+    <section class="card" id="mapCard">
+      <div class="mapbar">
+        <h2 id="mapTitle">Map</h2>
+        <div class="zoomer">
+          <button id="zoomOut" type="button" aria-label="Zoom out">&minus;</button>
+          <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
+          <button id="zoomAll" class="wide" type="button" disabled>Whole room</button>
+        </div>
+      </div>
+      <div id="map" class="mapwrap"></div>
+      <div id="legend" class="legend"></div>
+      <p id="tableInfo" class="hint">Pick a scholar, then tap their table. Pinch to zoom. The small numbers show how many scholars are at each table.</p>
+    </section>
+   </div>
   </div>
 </main>
 

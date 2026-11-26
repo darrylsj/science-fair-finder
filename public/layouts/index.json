@@ -1,8 +1,13 @@
 [
  {
+  "id": "2027",
+  "name": "2027 - Bellarmine Gym",
+  "default": true
+ },
+ {
   "id": "2026",
   "name": "2026 - Bellarmine Gym",
-  "default": true
+  "default": false
  },
  {
   "id": "2025",
