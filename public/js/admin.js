@@ -218,6 +218,7 @@
   // Enter in the search box picks the first scholar in the list.
   $("#q").addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
+    e.preventDefault(); // otherwise the same key press also "submits" the table box we are about to jump to
     const first = $("#results li");
     if (first) first.click();
   });
