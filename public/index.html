@@ -9,26 +9,15 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230b6e4f%27/%3E%3Ccircle cx=%2716%27 cy=%2714%27 r=%276%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%273%27/%3E%3Cpath d=%27M16 20v7%27 stroke=%27%23fff%27 stroke-width=%273%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body data-view="public">
 <header class="top">
   <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program" width="564" height="384">
-  <h1>Science Fair Finder <small>For judges</small></h1>
+  <h1>Science Fair Finder <small>Find a scholar's project</small></h1>
   <select id="event" aria-label="Science fair"></select>
 </header>
 <div id="demo" class="demo" hidden></div>
 
 <main>
-  <!-- Shown until the judge enters the access code -->
-  <section id="gate" class="card" hidden>
-    <h2>Enter your judge code</h2>
-    <form id="gateForm" class="field">
-      <input id="code" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Code from your judge packet" aria-label="Judge access code">
-      <button class="btn">Go</button>
-    </form>
-    <p id="gateError" class="error"></p>
-    <p class="hint">The code keeps scholar names visible to judges and volunteers only.</p>
-  </section>
-
   <div id="app" class="cols" hidden>
    <div class="side">
     <section class="card">
@@ -44,6 +33,10 @@
         <h3 id="foundName"></h3>
         <p id="foundWhere"></p>
         <p id="foundTitle"></p>
+        <div id="judgeBar" class="judgebar" hidden>
+          <button id="judgedBtn" class="btn small" type="button">Mark as judged</button>
+          <span id="judgedInfo" class="hint" style="margin:0"></span>
+        </div>
       </div>
     </section>
 
@@ -54,7 +47,7 @@
     </section>
 
     <div class="status after"><span id="dot" class="dot"></span><span id="status">Connecting...</span></div>
-    <p class="hint after"><a href="#" id="signout">Use a different code</a> &middot; <a href="/admin.html">Check-in desk</a></p>
+    <p class="hint after viewlinks"><a href="/judge.html">Judges</a> &middot; <a href="/admin.html">Check-in desk</a></p>
    </div>
 
    <div class="mapcol">

@@ -152,3 +152,14 @@ textarea { min-height: 110px; font-family: ui-monospace, Menlo, monospace; font-
 kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; font-size: 12px; background: #fff; }
 .who em { display: block; font-style: normal; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .who b i { font-style: normal; font-weight: 600; color: var(--muted); font-size: 13px; margin-left: 6px; }
+
+/* ---------- "judged" dots ---------- */
+.dots { display: flex; align-items: center; gap: 7px; min-height: 0; font-size: 11px; color: var(--muted); }
+.dots:not(:empty) { margin-top: 5px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: #9aa3b2; display: inline-block; }
+.dots i.mine { background: var(--ok); box-shadow: 0 0 0 2px rgba(11,110,79,.2); }
+.judgebar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.judgebar .btn.done { background: #e6f4ee; color: var(--ok); border: 1.5px solid #b9dfce; }
+.found { flex-wrap: wrap; }
+.found > div:last-child { flex: 1; min-width: 180px; }
+.viewlinks { font-size: 13px; }

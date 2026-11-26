@@ -2,8 +2,15 @@
 
 A phone-friendly web page for the Greene Scholars Program (GSP) science fair.
 
-- **Judges** open one link, type part of a scholar's name, a project number, or a word from the project title, and see the table lit up on a map of the gym.
-- **The check-in desk** (`/admin.html`) picks a scholar and taps the table they set up at. Every judge's phone updates within a second or two.
+There are three views:
+
+| View | Address | Who | Password |
+|---|---|---|---|
+| **Public** | `/` | Families and visitors: search a scholar by name, project number or project, see the table on the map | none |
+| **Judge** | `/judge.html` | Judges: the same search, plus a **Mark as judged** button. Each judge who marks an entry adds a dot under it, so judges and the desk can see which entries have been judged | judge code (built into the judge QR poster) |
+| **Check-in desk** | `/admin.html` | One or two volunteers: pick a scholar, tap the table they set up at; upload the roster; print the QR posters | desk password |
+
+Every phone updates within a second or two of a check-in.
 
 It ships with two maps, redrawn from the GSP layout drawings (the Bellarmine originals are in `docs/source-maps/`).
 The map supports pinch, drag and double-tap zoom, and on an iPad held sideways the list and map sit side by side.
@@ -34,7 +41,7 @@ All scholars in the test data are **fake** (names like "Zora Dryrun").
 
 From then on, every change pushed to GitHub goes live by itself.
 
-The site starts in **test mode** (yellow banner): codes are `judge-demo` and `admin-demo`, and uploading a real roster is switched off.
+The site starts in **test mode** (yellow banner): the judge code is `judge-demo`, the desk password is `admin-demo`, and uploading a real roster is switched off.
 
 ### Before using real scholar names
 
@@ -45,12 +52,8 @@ In Cloudflare open the Worker, then **Settings > Variables and Secrets**, and ad
 
 Once both exist the yellow banner disappears, the demo codes stop working, and roster upload turns on.
 
-Judges do not type anything: on the check-in page open **Judge QR code**, enter the judge code, and print the poster.
-The QR code holds a link like this (the part after `#` never leaves the phone):
-
-```
-https://YOUR-SITE/#code=gsp-rocket-27
-```
+Nobody types an address: on the check-in page open **QR code posters** and print the **Visitor poster** (opens the public view)
+and the **Judge poster** (opens the judge view already signed in; the code rides after the `#`, which never leaves the phone).
 
 ## On fair day
 
@@ -83,7 +86,7 @@ Then open <http://localhost:8787>.
 - **Cost.** The free Cloudflare plan allows 100,000 requests a day. A fair with 130 judges and 140 check-ins
   should stay well under that because phones hold one live connection and only re-download the list when
   something changes. If it ever gets close, the $5/month paid plan removes the worry.
-- **Privacy.** Scholar names are only sent to someone who has entered a valid code, pages ask search engines
-  not to index them, and no real roster is stored in this repository. Delete the roster after the fair
+- **Privacy.** The public view has no password, so once a real roster is uploaded, scholar names, grades, project titles
+  and table numbers can be read by anyone who has the address. Pages ask search engines not to index them, and no real roster is stored in this repository. Delete the roster after the fair
   (Roster tools > Delete this roster).
 - **Next ideas.** QR "you are here" signs at aisle ends, then NFC tags - see the wayfinding notes in the Claude project.

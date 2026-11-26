@@ -12,7 +12,7 @@
 <body>
 <header class="top desk">
   <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program" width="564" height="384">
-  <h1>Check-in desk <small><a href="/">Judge view</a></small></h1>
+  <h1>Check-in desk <small><a href="/">Public view</a> &middot; <a href="/judge.html">Judge view</a></small></h1>
   <select id="event" aria-label="Science fair"></select>
 </header>
 <div id="demo" class="demo" hidden></div>
@@ -76,11 +76,12 @@
 
     <section class="card after">
       <details>
-        <summary>Judge QR code</summary>
-        <p class="hint">Judges scan this with their phone camera and land straight on the finder, already signed in. Print it for the judges' room and the gym doors.</p>
+        <summary>QR code posters</summary>
+        <p class="hint"><b>Visitors</b> scan theirs and land on the public finder - no password. <b>Judges</b> scan theirs and are signed in to the judge view, where they can mark entries as judged.</p>
+        <div class="row"><button id="qrPublic" class="btn ghost small" type="button">Visitor poster</button></div>
         <div class="row">
           <input id="qrCode" type="text" autocomplete="off" autocapitalize="none" placeholder="Judge code" style="flex:1;width:auto" aria-label="Judge code">
-          <button id="qrGo" class="btn small" type="button">Make poster</button>
+          <button id="qrGo" class="btn small" type="button">Judge poster</button>
         </div>
       </details>
     </section>

@@ -72,6 +72,16 @@ export class FairRoom extends DurableObject {
     } catch {
       // column already exists
     }
+    // Which judges have judged which entries. A "judge" here is one phone or tablet
+    // (each device gets a random id), so nobody has to create an account.
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS judged (
+        student_id INTEGER NOT NULL,
+        device TEXT NOT NULL,
+        at INTEGER NOT NULL,
+        PRIMARY KEY (student_id, device)
+      );
+    `);
     this.failedLogins = new Map(); // visitor address -> times of recent wrong codes
     // Lets phones keep their live connection open without waking the database.
     this.ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair("ping", "pong"));
@@ -104,14 +114,35 @@ export class FairRoom extends DurableObject {
 
   // ---------- helpers ----------
 
-  listStudents(event) {
+  // The roster for one fair. Visitors (the public view) get names, projects and tables only.
+  // Judges and the desk also get the "judged" dots: how many judges have marked each entry,
+  // and whether this device is one of them.
+  listStudents(event, role, device) {
+    if (role === "visitor") {
+      return this.sql
+        .exec(
+          `SELECT id, project_no AS number, name, grade, category, title, section, table_id AS "table"
+           FROM students WHERE event = ? ORDER BY name COLLATE NOCASE`,
+          event
+        )
+        .toArray();
+    }
     return this.sql
       .exec(
-        `SELECT id, project_no AS number, name, grade, category, title, section, table_id AS "table", checked_in_at AS checkedInAt, checked_in_by AS "by"
-         FROM students WHERE event = ? ORDER BY name COLLATE NOCASE`,
+        `SELECT s.id, s.project_no AS number, s.name, s.grade, s.category, s.title, s.section,
+                s.table_id AS "table", s.checked_in_at AS checkedInAt, s.checked_in_by AS "by",
+                (SELECT COUNT(*) FROM judged j WHERE j.student_id = s.id) AS judged,
+                EXISTS (SELECT 1 FROM judged j WHERE j.student_id = s.id AND j.device = ?) AS mine
+         FROM students s WHERE s.event = ? ORDER BY s.name COLLATE NOCASE`,
+        device,
         event
       )
       .toArray();
+  }
+
+  // Forget "judged" marks that point at scholars who are no longer on any roster.
+  tidyJudged() {
+    this.sql.exec("DELETE FROM judged WHERE student_id NOT IN (SELECT id FROM students)");
   }
 
   // Tell every open phone "something changed" - they then re-download the list.
@@ -177,30 +208,34 @@ export class FairRoom extends DurableObject {
       );
     }
 
-    // Everything else needs an access code.
     const address = request.headers.get("cf-connecting-ip") || "unknown";
     const failures = this.recentFailures(address);
     if (failures.length >= 20) return json({ error: "Too many wrong codes. Wait a minute and try again." }, 429);
-    const role = this.roleFor(request.headers.get("x-access-code") || "");
+    const code = request.headers.get("x-access-code") || "";
+    const device = clean(request.headers.get("x-device-id"), 40);
+    // No code at all = the public view (a visitor). A wrong code is still an error.
+    const role = code ? this.roleFor(code) : "visitor";
     if (!role) {
       failures.push(Date.now());
       return json({ error: "That access code is not right." }, 401);
     }
 
-    if (path === "/api/login" && method === "POST") return json({ role, demo: this.demoMode });
+    if (path === "/api/login" && method === "POST") {
+      if (role === "visitor") return json({ error: "Enter your access code." }, 401);
+      return json({ role, demo: this.demoMode });
+    }
 
     const match = path.match(/^\/api\/events\/([a-z0-9-]{1,20})\/([a-z]+)(?:\/(\d+))?$/);
     if (!match) return json({ error: "Not found" }, 404);
     const [, event, action, idText] = match;
 
+    // Anyone can read the list (the public view needs no password).
     if (action === "students" && method === "GET") {
-      return json({ students: this.listStudents(event), role });
+      return json({ students: this.listStudents(event, role, device), role });
     }
 
-    // ----- admin only below this line -----
-    if (role !== "admin") return json({ error: "This needs the admin code." }, 403);
-    if (method !== "POST" && method !== "DELETE") return json({ error: "Not found" }, 404);
-
+    // ----- judges and the desk -----
+    if (role === "visitor") return json({ error: "This needs an access code." }, 401);
     let body = {};
     if (method === "POST") {
       try {
@@ -209,6 +244,22 @@ export class FairRoom extends DurableObject {
         body = {};
       }
     }
+
+    // A judge marks an entry as judged (done: true) or takes the mark back (done: false).
+    if (action === "judged" && method === "POST") {
+      if (!device) return json({ error: "Missing device id." }, 400);
+      const id = Number(body.id);
+      const existing = this.sql.exec("SELECT id FROM students WHERE id = ? AND event = ?", id, event).toArray();
+      if (existing.length === 0) return json({ error: "Scholar not found." }, 404);
+      if (body.done) this.sql.exec("INSERT OR IGNORE INTO judged (student_id, device, at) VALUES (?, ?, ?)", id, device, Date.now());
+      else this.sql.exec("DELETE FROM judged WHERE student_id = ? AND device = ?", id, device);
+      this.broadcast(event);
+      return json({ ok: true });
+    }
+
+    // ----- admin only below this line -----
+    if (role !== "admin") return json({ error: "This needs the admin code." }, 403);
+    if (method !== "POST" && method !== "DELETE") return json({ error: "Not found" }, 404);
 
     // Check a scholar in at a table (or send table: null to undo).
     if (action === "checkin" && method === "POST") {
@@ -238,6 +289,7 @@ export class FairRoom extends DurableObject {
 
     if (action === "students" && method === "DELETE" && idText) {
       this.sql.exec("DELETE FROM students WHERE id = ? AND event = ?", Number(idText), event);
+      this.tidyJudged();
       this.broadcast(event);
       return json({ ok: true });
     }
@@ -252,6 +304,7 @@ export class FairRoom extends DurableObject {
       if (body.replace) this.sql.exec("DELETE FROM students WHERE event = ?", event);
       let added = 0;
       for (const row of rows) if (this.insertStudent(event, row)) added++;
+      this.tidyJudged();
       this.broadcast(event);
       return json({ ok: true, added });
     }
@@ -274,6 +327,7 @@ export class FairRoom extends DurableObject {
         }
         this.insertStudent(event, { ...row, table });
       }
+      this.tidyJudged();
       this.broadcast(event);
       return json({ ok: true, added: roster.length });
     }
@@ -288,6 +342,7 @@ export class FairRoom extends DurableObject {
     // Remove the whole roster for this event.
     if (action === "clear" && method === "POST") {
       this.sql.exec("DELETE FROM students WHERE event = ?", event);
+      this.tidyJudged();
       this.broadcast(event);
       return json({ ok: true });
     }

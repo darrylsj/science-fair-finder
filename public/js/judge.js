@@ -1,4 +1,6 @@
-// The judge page: type a name, see the table.
+// The finder page. It runs in two views, chosen by <body data-view="...">:
+//   public - no password; anyone can look up a scholar's table
+//   judge  - needs the judge code; adds the "judged" dots and the Mark as judged button
 
 (async () => {
   const { $ } = SFF;
@@ -7,6 +9,7 @@
   let map = null;
   let students = [];
   let selectedId = null;
+  const isJudgeView = document.body.dataset.view === "judge";
   let mine = []; // ids of scholars this judge has looked up, remembered on this phone
   const mineKey = () => "sff-mine-" + eventId;
   function loadMine() {
@@ -45,15 +48,17 @@
     }
   }
 
-  $("#gateForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    trySignIn($("#code").value);
-  });
-  $("#signout").addEventListener("click", (e) => {
-    e.preventDefault();
-    SFF.logout();
-    location.reload();
-  });
+  if (isJudgeView) {
+    $("#gateForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      trySignIn($("#code").value);
+    });
+    $("#signout").addEventListener("click", (e) => {
+      e.preventDefault();
+      SFF.logout();
+      location.reload();
+    });
+  }
 
   // ---------- data ----------
 
@@ -69,7 +74,7 @@
       renderFound();
       renderMine();
     } catch (error) {
-      if (error.status === 401) trySignIn("");
+      if (error.status === 401 && isJudgeView) trySignIn("");
       else $("#status").textContent = "Offline - showing the last list";
     }
   }
@@ -111,6 +116,7 @@
       const project = document.createElement("em");
       project.textContent = s.title || "";
       who.append(name, sub, project);
+      if (isJudgeView) who.appendChild(SFF.judgedDots(s)); // one dot per judge who has judged this entry
       const chip = document.createElement("span");
       chip.className = "chip" + (s.table ? "" : " wait");
       chip.textContent = s.table ? "Table " + s.table : "Not here yet";
@@ -146,6 +152,13 @@
     const table = layout.tables.find((t) => t.id === s.table);
     $("#foundName").textContent = s.name + (s.number ? "  #" + s.number : "");
     $("#foundTitle").textContent = s.title || "";
+    $("#judgeBar").hidden = !isJudgeView;
+    if (isJudgeView) {
+      const others = (s.judged || 0) - (s.mine ? 1 : 0);
+      $("#judgedBtn").textContent = s.mine ? "✓ You judged this (undo)" : "Mark as judged";
+      $("#judgedBtn").classList.toggle("done", Boolean(s.mine));
+      $("#judgedInfo").textContent = others > 0 ? `${others} other judge${others === 1 ? " has" : "s have"} judged this entry` : "";
+    }
     $("#foundBig").classList.toggle("wait", !s.table);
     if (s.table) {
       $("#foundBig").firstElementChild.textContent = "Table";
@@ -172,6 +185,13 @@
       const button = document.createElement("button");
       button.type = "button";
       if (s.id === selectedId) button.className = "on";
+      if (isJudgeView && s.mine) {
+        const dot = document.createElement("span");
+        dot.className = "dots";
+        dot.innerHTML = '<i class="mine"></i>';
+        dot.style.margin = "0";
+        button.appendChild(dot);
+      }
       const table = document.createElement("b");
       table.textContent = s.table || "…";
       if (!s.table) table.className = "wait";
@@ -204,6 +224,24 @@
     renderResults();
     renderFound();
   });
+  // Mark (or un-mark) the selected entry as judged by this judge.
+  $("#judgedBtn").addEventListener("click", async () => {
+    const s = students.find((x) => x.id === selectedId);
+    if (!s) return;
+    const done = !s.mine;
+    s.judged = (s.judged || 0) + (done ? 1 : -1); // show it right away
+    s.mine = done ? 1 : 0;
+    renderResults();
+    renderFound();
+    renderMine();
+    try {
+      await SFF.api(`/events/${eventId}/judged`, { method: "POST", body: { id: s.id, done } });
+    } catch (error) {
+      SFF.toast("Not saved: " + error.message, 4000);
+    }
+    refresh();
+  });
+
   $("#zoomIn").addEventListener("click", () => map.zoomIn());
   $("#zoomOut").addEventListener("click", () => map.zoomOut());
   $("#zoomAll").addEventListener("click", () => map.wholeRoom());
@@ -219,7 +257,13 @@
     (isLive) => $("#dot").classList.toggle("live", isLive)
   );
 
-  const saved = SFF.savedCode();
-  if (saved) trySignIn(saved);
-  else $("#gate").hidden = false;
+  if (isJudgeView) {
+    const saved = SFF.savedCode();
+    if (saved) trySignIn(saved);
+    else $("#gate").hidden = false;
+  } else {
+    // Public view: no password. Just show the finder.
+    $("#app").hidden = false;
+    openEvent();
+  }
 })();

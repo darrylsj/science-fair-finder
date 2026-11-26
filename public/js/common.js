@@ -109,11 +109,19 @@ const SFF = (() => {
 
   let accessCode = null;
 
+  // A random id for this phone or tablet, so "judged" marks belong to one judge without any sign-up.
+  let deviceId = recall("sff-device");
+  if (!deviceId) {
+    deviceId = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    remember("sff-device", deviceId);
+  }
+
   async function api(path, options = {}) {
     const response = await fetch("/api" + path, {
       method: options.method || "GET",
       headers: {
         "x-access-code": accessCode || "",
+        "x-device-id": deviceId,
         ...(options.body ? { "content-type": "application/json" } : {}),
       },
       body: options.body ? JSON.stringify(options.body) : undefined,
@@ -443,6 +451,22 @@ const SFF = (() => {
     };
   }
 
+  // A row of small dots: one per judge who has judged this entry. Yours is the solid green one.
+  function judgedDots(student) {
+    const row = document.createElement("span");
+    row.className = "dots";
+    const count = student.judged || 0;
+    if (!count) return row;
+    row.title = count === 1 ? "Judged by 1 judge" : `Judged by ${count} judges`;
+    for (let i = 0; i < Math.min(count, 6); i++) {
+      const dot = document.createElement("i");
+      if (i === 0 && student.mine) dot.className = "mine";
+      row.appendChild(dot);
+    }
+    if (count > 6) row.appendChild(document.createTextNode("+" + (count - 6)));
+    return row;
+  }
+
   function drawLegend(holder, layout) {
     const colorsBySection = new Map(); // section name -> list of colors used for it
     for (const t of layout.tables) {
@@ -467,10 +491,10 @@ const SFF = (() => {
     const banner = $("#demo");
     if (config.demo && banner) {
       banner.hidden = false;
-      banner.innerHTML = `<b>Test mode</b> - fake scholars only. Judge code <code>${config.demoJudgeCode}</code>, admin code <code>${config.demoAdminCode}</code>.`;
+      banner.innerHTML = `<b>Test mode</b> - fake scholars only. Judge code <code>${config.demoJudgeCode}</code>, check-in password <code>${config.demoAdminCode}</code>.`;
     }
     return config;
   }
 
-  return { $, api, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
+  return { $, api, judgedDots, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
 })();

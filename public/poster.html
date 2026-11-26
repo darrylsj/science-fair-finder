@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Judge QR poster - GSP Science Fair Finder</title>
+<title>QR poster - GSP Science Fair Finder</title>
 <style>
   body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #14213d; background: #f5f6f8; }
   .sheet { max-width: 7.5in; margin: 20px auto; background: #fff; padding: 0.5in; text-align: center; border-radius: 14px; }
@@ -24,8 +24,8 @@
 <div class="bar"><button onclick="print()">Print this poster</button></div>
 <div class="sheet">
   <img class="logo" src="/img/gsp-logo.png" alt="Greene Scholars Program">
-  <h1>Find your scholars</h1>
-  <p class="lead">Judges: scan to see every scholar's table on the gym map.</p>
+  <h1 id="headline">Judges: find your scholars</h1>
+  <p class="lead" id="lead">Scan to see every scholar's table and mark the entries you have judged.</p>
   <div id="qr"></div>
   <ol>
     <li>Point your phone camera at the square.</li>
@@ -37,18 +37,25 @@
 </div>
 <script src="/js/vendor/qrcode.js"></script>
 <script>
-  // The judge code arrives after the # in this page's address and is built into the QR code.
+  // Two kinds of poster:
+  //   poster.html#public      - for visitors: opens the public finder, no code
+  //   poster.html#code=XXXX   - for judges: opens the judge view, already signed in
+  const isPublic = location.hash === "#public";
   const match = location.hash.match(/code=([^&]+)/);
   const code = match ? decodeURIComponent(match[1]) : "";
-  const link = location.origin + "/#code=" + encodeURIComponent(code);
-  if (!code) {
-    document.getElementById("warn").textContent = "No judge code given. Open this page from the check-in desk (Judge QR code).";
+  const link = isPublic ? location.origin + "/" : location.origin + "/judge.html#code=" + encodeURIComponent(code);
+  if (isPublic) {
+    document.getElementById("headline").textContent = "Find a scholar";
+    document.getElementById("lead").textContent = "Scan to find any scholar's table on the gym map.";
+  }
+  if (!isPublic && !code) {
+    document.getElementById("warn").textContent = "No judge code given. Open this page from the check-in desk (QR code posters).";
   } else {
     const qr = qrcode(0, "M"); // 0 = pick the size automatically, M = medium error correction
     qr.addData(link);
     qr.make();
     document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 8, margin: 4, scalable: true });
-    document.getElementById("url").textContent = location.origin + "  ·  judge code: " + code;
+    document.getElementById("url").textContent = isPublic ? location.origin : location.origin + "/judge.html  ·  judge code: " + code;
   }
 </script>
 </body>

@@ -14,12 +14,13 @@
   SFF.showDemoBanner().then((config) => {
     if (config.demo) $("#qrCode").value = config.demoJudgeCode;
   });
-  // Opens a printable poster with a QR code that signs judges in.
+  // Printable posters: one QR code for judges (carries the judge code), one for visitors (no code).
   $("#qrGo").addEventListener("click", () => {
     const code = $("#qrCode").value.trim();
     if (!code) return SFF.toast("Type the judge code first.");
     window.open("/poster.html#code=" + encodeURIComponent(code), "_blank");
   });
+  $("#qrPublic").addEventListener("click", () => window.open("/poster.html#public", "_blank"));
 
   // ---------- signing in ----------
 
@@ -59,7 +60,7 @@
     }
     const seated = students.filter((s) => s.table).length;
     $("#status").textContent = students.length
-      ? `${seated} of ${students.length} checked in · ${students.length - seated} waiting`
+      ? `${seated} of ${students.length} checked in · ${students.length - seated} waiting · ${students.filter((x) => x.judged).length} judged`
       : "No roster yet - open Roster tools below";
     const counts = {};
     for (const s of students) if (s.table) counts[s.table] = (counts[s.table] || 0) + 1;
@@ -137,7 +138,7 @@
       }
       const sub = document.createElement("span");
       sub.textContent = [s.grade && "Grade " + s.grade, s.section || s.category].filter(Boolean).join(" · ");
-      who.append(name, sub);
+      who.append(name, sub, SFF.judgedDots(s)); // one dot per judge who has judged this entry
       const chip = document.createElement("span");
       chip.className = "chip" + (s.table ? "" : " wait");
       chip.textContent = s.table ? "Table " + s.table : "Waiting";
