@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "compatibility_date": "2025-10-01",
 
+  // Turn on the free https://science-fair-finder.<account>.workers.dev address.
+  "workers_dev": true,
+
   // Everything in /public is served as the website (pages, maps, test data).
   "assets": { "directory": "./public", "binding": "ASSETS" },
 
