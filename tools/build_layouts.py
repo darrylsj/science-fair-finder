@@ -246,7 +246,9 @@ def make_2023():
     }
 
 
-LAYOUTS = [make_2027(), make_2026(), make_2025(), make_2023()]
+# Only the fairs listed here appear in the drop-down on the website.
+# make_2025() and make_2023() are kept above for reference; add them back here to show them again.
+LAYOUTS = [make_2027(), make_2026()]
 DEFAULT_EVENT = "2027"
 
 if __name__ == "__main__":

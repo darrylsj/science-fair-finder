@@ -5,15 +5,13 @@ A phone-friendly web page for the Greene Scholars Program (GSP) science fair.
 - **Judges** open one link, type part of a scholar's name, a project number, or a word from the project title, and see the table lit up on a map of the gym.
 - **The check-in desk** (`/admin.html`) picks a scholar and taps the table they set up at. Every judge's phone updates within a second or two.
 
-It ships with four maps, redrawn from the GSP layout drawings (the Bellarmine originals are in `docs/source-maps/`).
+It ships with two maps, redrawn from the GSP layout drawings (the Bellarmine originals are in `docs/source-maps/`).
 The map supports pinch, drag and double-tap zoom, and on an iPad held sideways the list and map sit side by side.
 
 | Fair | Venue | Tables | Notes |
 |---|---|---|---|
 | 2027 | Bellarmine gym | 46 | default; draft on the 2026 table positions, grade areas only (no separate Expo tables) |
 | 2026 | Bellarmine gym | 46 | the reference map |
-| 2025 | Bellarmine gym | 36 | numbered in a snake |
-| 2023 | Emmanuel Baptist FLC | 38 | the original drawing had no table numbers, so these are made up |
 
 All scholars in the test data are **fake** (names like "Zora Dryrun").
 
