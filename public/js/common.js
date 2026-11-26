@@ -65,11 +65,14 @@ const SFF = (() => {
       const name = normalize(s.name);
       const title = normalize(s.title);
       const number = normalize(s.number);
+      const digits = number.replace(/\D/g, "").replace(/^0+/, ""); // "hyp-0104" -> "104"
       let score = 0;
       let ok = true;
       for (const word of words) {
         if (number && number === word) score += 6;
-        else if (number && number.startsWith(word)) score += 4;
+        else if (digits && /^\d+$/.test(word) && digits === word.replace(/^0+/, "")) score += 5;
+        else if (number && (number.startsWith(word) || number.replace(/[^a-z0-9]/g, "").startsWith(word.replace(/[^a-z0-9]/g, "")))) score += 4;
+        else if (digits && /^\d+$/.test(word) && digits.startsWith(word.replace(/^0+/, ""))) score += 3.5;
         else if (name.split(" ").some((part) => part.startsWith(word))) score += 3;
         else if (name.includes(word)) score += 2;
         else if (title.includes(word)) score += 1;

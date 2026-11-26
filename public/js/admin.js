@@ -300,6 +300,7 @@
     const iCategory = col("category", "type");
     const iTitle = col("title", "project");
     const iTable = col("table");
+    const iSection = col("section", "area");
     const get = (r, i) => (i >= 0 && r[i] ? r[i].trim() : "");
     return rows.slice(1).map((r) => ({
       name: iFirst >= 0 && iLast >= 0 ? `${get(r, iFirst)} ${get(r, iLast)}`.trim() : get(r, iName),
@@ -308,6 +309,7 @@
       category: get(r, iCategory),
       title: get(r, iTitle),
       table: get(r, iTable),
+      section: get(r, iSection),
     })).filter((s) => s.name);
   }
 
