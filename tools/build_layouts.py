@@ -103,14 +103,42 @@ def make_2026():
 def make_2027():
     """Bellarmine gym, January 23 2027.
 
-    DRAFT: the 2027 drawing does not exist yet, so this starts as an exact copy of
-    the 2026 Bellarmine map (same room, same 46 tables). When the real 2027 layout
-    is ready, replace the line below with its own table list, the way make_2026() does it.
+    DRAFT based on the 2026 Bellarmine map: same room, same 46 table positions and numbers.
+    New for 2027: there are NO separate Expo tables. Applied Engineering projects sit with
+    their grade, so the 12 tables that were Expo in 2026 (35-46) now belong to Grades 9-10
+    and the grade areas were widened to fit this year's sign-ups:
+
+        Grade 3      tables  1-4     Grades 7-8   tables 21-34
+        Grade 4      tables  5-8     Grades 9-10  tables 35-46
+        Grades 5-6   tables  9-20
+
+    To move a boundary, change the numbers in AREAS below and run this script again.
     """
+    AREAS = [  # (first table, last table, area name, color)
+        (1, 4, "Grade 3", GREEN),
+        (5, 8, "Grade 4", PINK),
+        (9, 20, "Grades 5-6", ORANGE),
+        (21, 34, "Grades 7-8", BLUE),
+        (35, 46, "Grades 9-10", PURPLE),
+    ]
     layout = make_2026()
     layout["id"] = "2027"
     layout["name"] = "2027 - Bellarmine Gym"
     layout["date"] = "2027-01-23"
+    for t in layout["tables"]:
+        for first, last, name, color in AREAS:
+            if first <= int(t["id"]) <= last:
+                t["section"], t["color"] = name, color
+    layout["labels"] = [
+        {"text": "Grade 3", "x": 9.7, "y": 9.6, "color": GREEN},
+        {"text": "Grade 4", "x": 9.7, "y": 39.4, "color": PINK},
+        {"text": "Grades 5-6", "x": 31.0, "y": 9.6, "color": "#e8833f"},
+        {"text": "Grades 7-8", "x": 61.0, "y": 9.6, "color": "#1582b3"},
+        {"text": "Grades 9-10", "x": 91.9, "y": 9.6, "color": "#5b3fd6"},
+    ]
+    layout["lines"] = [
+        [18.3, 10.4, 18.3, 67.5, "#9ca3af"], [43.8, 10.6, 43.8, 68.0, "#9ca3af"], [79.5, 11.5, 79.5, 68.0, "#9ca3af"],
+    ]
     return layout
 
 

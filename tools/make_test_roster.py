@@ -67,7 +67,8 @@ def make_roster(layout, seed):
             roster.append({
                 "name": names.pop(),
                 "grade": str(grade_for(t["section"], rng)),
-                "category": category_for(t["section"]),
+                # From 2027 on, Applied Engineering projects sit with their grade (about 1 in 6 projects).
+                "category": "Applied Engineering" if layout["id"] >= "2027" and rng.random() < 0.16 else category_for(t["section"]),
                 "title": "TEST - " + rng.choice(TOPICS),
                 "section": t["section"],
             })

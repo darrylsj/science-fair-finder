@@ -1,883 +1,891 @@
 [
  {
   "name": "Aaliyah Draftman",
-  "grade": "9",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Wind turbine blade angles",
-  "section": "Grades 9-10",
-  "number": "143"
+  "title": "TEST - Does caffeine affect typing speed?",
+  "section": "Grades 7-8",
+  "number": "228"
  },
  {
   "name": "Aaliyah Dryrun",
-  "grade": "10",
-  "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
-  "section": "Grades 9-10",
-  "number": "117"
+  "grade": "8",
+  "category": "Applied Engineering",
+  "title": "TEST - Cleaning water with homemade filters",
+  "section": "Grades 7-8",
+  "number": "175"
  },
  {
   "name": "Aaliyah Exampleby",
   "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grades 5-6",
-  "number": "213"
+  "number": "181"
  },
  {
   "name": "Aaliyah Prototype",
-  "grade": "9",
-  "category": "Expo - Environmental",
-  "title": "TEST - How salt changes the freezing point of water",
-  "section": "Expo - Environmental",
-  "number": "119"
+  "grade": "8",
+  "category": "Hypothesis",
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 7-8",
+  "number": "220"
  },
  {
   "name": "Amara Dryrun",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - Does music help plants grow?",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grade 3",
-  "number": "203"
+  "number": "222"
  },
  {
   "name": "Amara Fakewood",
-  "grade": "10",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Grades 9-10",
-  "number": "197"
+  "title": "TEST - Cleaning water with homemade filters",
+  "section": "Grades 7-8",
+  "number": "137"
  },
  {
   "name": "Amara Rehearsal",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - How temperature changes a basketball's bounce",
   "section": "Grades 7-8",
-  "number": "127"
+  "number": "245"
  },
  {
   "name": "Andre Betaworth",
-  "grade": "7",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Do video games affect reaction time?",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grades 7-8",
-  "number": "252"
+  "number": "225"
  },
  {
   "name": "Andre Pilotte",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Does music help plants grow?",
+  "title": "TEST - A low-cost air quality sensor",
   "section": "Grade 4",
-  "number": "251"
+  "number": "149"
  },
  {
   "name": "Andre Practise",
-  "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Invention",
-  "number": "174"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Soil pH and bean sprouts",
+  "section": "Grades 9-10",
+  "number": "114"
  },
  {
   "name": "Asha Pilotte",
   "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Wind turbine blade angles",
+  "category": "Applied Engineering",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grade 4",
-  "number": "160"
+  "number": "183"
  },
  {
   "name": "Asha Placeholder",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
+  "title": "TEST - Composting with worms",
   "section": "Grades 7-8",
-  "number": "194"
+  "number": "124"
  },
  {
   "name": "Asha Practise",
-  "grade": "7",
-  "category": "Expo - Environmental",
-  "title": "TEST - A low-cost air quality sensor",
-  "section": "Expo - Environmental",
-  "number": "130"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Which bridge shape holds the most weight?",
+  "section": "Grades 9-10",
+  "number": "143"
  },
  {
   "name": "Asha Prototype",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Wind turbine blade angles",
-  "section": "Expo - Invention",
-  "number": "110"
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 9-10",
+  "number": "229"
  },
  {
   "name": "Ayana Exampleby",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Expo - Invention",
-  "number": "106"
+  "grade": "9",
+  "category": "Applied Engineering",
+  "title": "TEST - Composting with worms",
+  "section": "Grades 9-10",
+  "number": "236"
  },
  {
   "name": "Ayana Placeholder",
-  "grade": "10",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grades 9-10",
-  "number": "111"
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 7-8",
+  "number": "192"
  },
  {
   "name": "Ayana Testerman",
-  "grade": "10",
-  "category": "Expo - Invention",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Invention",
-  "number": "248"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Solar oven efficiency",
+  "section": "Grades 9-10",
+  "number": "174"
  },
  {
   "name": "Caleb Demoson",
-  "grade": "8",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 7-8",
-  "number": "116"
+  "number": "176"
  },
  {
   "name": "Caleb Dryrun",
-  "grade": "10",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grades 9-10",
-  "number": "157"
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 7-8",
+  "number": "142"
  },
  {
   "name": "Caleb Practise",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Wind turbine blade angles",
+  "title": "TEST - A low-cost air quality sensor",
   "section": "Grades 5-6",
-  "number": "184"
+  "number": "167"
  },
  {
   "name": "Caleb Prototype",
-  "grade": "9",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Solar oven efficiency",
-  "section": "Grades 9-10",
-  "number": "195"
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 7-8",
+  "number": "125"
  },
  {
   "name": "Caleb Stubbs",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - Do video games affect reaction time?",
+  "title": "TEST - An app that reminds you to drink water",
   "section": "Grade 3",
-  "number": "150"
+  "number": "146"
  },
  {
   "name": "Caleb Trialby",
-  "grade": "6",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Soil pH and bean sprouts",
+  "title": "TEST - Sorting recycling with a robot arm",
   "section": "Grades 5-6",
-  "number": "249"
+  "number": "202"
  },
  {
   "name": "Darius Betaworth",
-  "grade": "9",
+  "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grades 9-10",
-  "number": "121"
+  "section": "Grades 7-8",
+  "number": "177"
  },
  {
   "name": "Darius Demoson",
-  "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 4",
-  "number": "222"
+  "grade": "3",
+  "category": "Applied Engineering",
+  "title": "TEST - Which bridge shape holds the most weight?",
+  "section": "Grade 3",
+  "number": "144"
  },
  {
   "name": "Darius Dummont",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grades 5-6",
-  "number": "131"
+  "number": "235"
  },
  {
   "name": "Darius Exampleby",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
+  "title": "TEST - Cleaning water with homemade filters",
   "section": "Grade 3",
-  "number": "181"
+  "number": "188"
  },
  {
   "name": "Darius Sampleton",
   "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - Soil pH and bean sprouts",
   "section": "Grades 5-6",
-  "number": "235"
+  "number": "231"
  },
  {
   "name": "Darius Trialby",
   "grade": "3",
-  "category": "Hypothesis",
-  "title": "TEST - Soil pH and bean sprouts",
+  "category": "Applied Engineering",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grade 3",
-  "number": "142"
+  "number": "216"
  },
  {
   "name": "Desmond Draftman",
   "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - An app that reminds you to drink water",
-  "section": "Expo - Invention",
-  "number": "107"
- },
- {
-  "name": "Desmond Dryrun",
-  "grade": "10",
   "category": "Hypothesis",
   "title": "TEST - Does music help plants grow?",
   "section": "Grades 9-10",
-  "number": "113"
+  "number": "171"
+ },
+ {
+  "name": "Desmond Dryrun",
+  "grade": "8",
+  "category": "Applied Engineering",
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 7-8",
+  "number": "230"
  },
  {
   "name": "Desmond Mockford",
-  "grade": "8",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grades 7-8",
-  "number": "162"
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 5-6",
+  "number": "194"
  },
  {
   "name": "Desmond Practise",
-  "grade": "8",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grades 7-8",
-  "number": "223"
+  "number": "106"
  },
  {
   "name": "Desmond Rehearsal",
-  "grade": "7",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grades 7-8",
-  "number": "124"
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 5-6",
+  "number": "158"
  },
  {
   "name": "Desmond Specimen",
-  "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grade 4",
-  "number": "207"
+  "grade": "5",
+  "category": "Applied Engineering",
+  "title": "TEST - A low-cost air quality sensor",
+  "section": "Grades 5-6",
+  "number": "237"
  },
  {
   "name": "Devon Mockford",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - How salt changes the freezing point of water",
   "section": "Grades 7-8",
-  "number": "193"
+  "number": "199"
  },
  {
   "name": "Devon Specimen",
-  "grade": "9",
-  "category": "Expo - Invention",
+  "grade": "10",
+  "category": "Hypothesis",
   "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Expo - Invention",
-  "number": "103"
+  "section": "Grades 9-10",
+  "number": "185"
  },
  {
   "name": "Devon Stubbs",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Growing crystals faster",
-  "section": "Expo - Invention",
-  "number": "214"
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - A backpack that charges your phone",
+  "section": "Grades 9-10",
+  "number": "119"
  },
  {
   "name": "Devon Testwell",
-  "grade": "10",
-  "category": "Expo - Environmental",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Environmental",
-  "number": "216"
+  "grade": "8",
+  "category": "Hypothesis",
+  "title": "TEST - Rainwater capture for school gardens",
+  "section": "Grades 7-8",
+  "number": "208"
  },
  {
   "name": "Ebony Demoson",
-  "grade": "7",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
+  "title": "TEST - Battery life: brand vs. price",
   "section": "Grades 7-8",
-  "number": "136"
+  "number": "103"
  },
  {
   "name": "Ebony Mockford",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
+  "title": "TEST - How salt changes the freezing point of water",
   "section": "Grades 5-6",
-  "number": "171"
+  "number": "221"
  },
  {
   "name": "Ebony Pilotte",
-  "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Grade 4",
-  "number": "148"
+  "grade": "3",
+  "category": "Applied Engineering",
+  "title": "TEST - Rainwater capture for school gardens",
+  "section": "Grade 3",
+  "number": "141"
  },
  {
   "name": "Ebony Trialby",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Expo - Invention",
-  "number": "123"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - How temperature changes a basketball's bounce",
+  "section": "Grades 9-10",
+  "number": "219"
  },
  {
   "name": "Elijah Betaworth",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grade 3",
-  "number": "225"
+  "number": "238"
  },
  {
   "name": "Elijah Specimen",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
+  "title": "TEST - Battery life: brand vs. price",
   "section": "Grades 7-8",
-  "number": "156"
+  "number": "150"
  },
  {
   "name": "Elijah Testwell",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "title": "TEST - Battery life: brand vs. price",
   "section": "Grades 5-6",
-  "number": "243"
+  "number": "112"
  },
  {
   "name": "Imani Demoson",
-  "grade": "7",
-  "category": "Hypothesis",
-  "title": "TEST - Soil pH and bean sprouts",
+  "grade": "8",
+  "category": "Applied Engineering",
+  "title": "TEST - Growing crystals faster",
   "section": "Grades 7-8",
-  "number": "105"
+  "number": "211"
  },
  {
   "name": "Imani Exampleby",
   "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Which bridge shape holds the most weight?",
+  "title": "TEST - Growing crystals faster",
   "section": "Grades 5-6",
-  "number": "108"
+  "number": "159"
  },
  {
   "name": "Imani Prototype",
-  "grade": "7",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grades 7-8",
-  "number": "109"
+  "number": "217"
  },
  {
   "name": "Imani Specimen",
   "grade": "10",
-  "category": "Expo - Invention",
+  "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Invention",
-  "number": "164"
+  "section": "Grades 9-10",
+  "number": "223"
  },
  {
   "name": "Isaiah Demoson",
-  "grade": "10",
+  "grade": "7",
   "category": "Hypothesis",
   "title": "TEST - Do video games affect reaction time?",
-  "section": "Grades 9-10",
-  "number": "239"
+  "section": "Grades 7-8",
+  "number": "121"
  },
  {
   "name": "Isaiah Dummont",
-  "grade": "4",
+  "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
-  "section": "Grade 4",
-  "number": "182"
+  "title": "TEST - Battery life: brand vs. price",
+  "section": "Grade 3",
+  "number": "200"
  },
  {
   "name": "Isaiah Fakewood",
-  "grade": "4",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
-  "section": "Grade 4",
-  "number": "145"
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 5-6",
+  "number": "148"
  },
  {
   "name": "Isaiah Pilotte",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Battery life: brand vs. price",
+  "title": "TEST - A low-cost air quality sensor",
   "section": "Grade 4",
-  "number": "254"
+  "number": "118"
  },
  {
   "name": "Isaiah Rehearsal",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 5-6",
-  "number": "201"
+  "number": "239"
  },
  {
   "name": "Jada Dummont",
-  "grade": "10",
-  "category": "Expo - Invention",
-  "title": "TEST - Does music help plants grow?",
-  "section": "Expo - Invention",
-  "number": "221"
+  "grade": "9",
+  "category": "Applied Engineering",
+  "title": "TEST - Paper airplane wing designs",
+  "section": "Grades 9-10",
+  "number": "254"
  },
  {
   "name": "Jada Mockford",
   "grade": "8",
-  "category": "Expo - Environmental",
-  "title": "TEST - Do video games affect reaction time?",
-  "section": "Expo - Environmental",
-  "number": "147"
+  "category": "Hypothesis",
+  "title": "TEST - Rainwater capture for school gardens",
+  "section": "Grades 7-8",
+  "number": "129"
  },
  {
   "name": "Jada Pilotte",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Wind turbine blade angles",
-  "section": "Expo - Invention",
-  "number": "208"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 9-10",
+  "number": "209"
  },
  {
   "name": "Jalen Draftman",
-  "grade": "7",
-  "category": "Hypothesis",
-  "title": "TEST - Paper airplane wing designs",
+  "grade": "8",
+  "category": "Applied Engineering",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grades 7-8",
-  "number": "234"
+  "number": "157"
  },
  {
   "name": "Jalen Dummont",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Which bridge shape holds the most weight?",
+  "title": "TEST - How temperature changes a basketball's bounce",
   "section": "Grades 7-8",
-  "number": "179"
+  "number": "214"
  },
  {
   "name": "Jalen Exampleby",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Invention",
-  "number": "241"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - A low-cost air quality sensor",
+  "section": "Grades 9-10",
+  "number": "252"
  },
  {
   "name": "Jalen Fakewood",
-  "grade": "10",
-  "category": "Expo - Environmental",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Environmental",
-  "number": "139"
+  "grade": "8",
+  "category": "Hypothesis",
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 7-8",
+  "number": "196"
  },
  {
   "name": "Jalen Pilotte",
-  "grade": "10",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grades 9-10",
-  "number": "134"
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 7-8",
+  "number": "107"
  },
  {
   "name": "Jordan Draftman",
-  "grade": "8",
-  "category": "Hypothesis",
-  "title": "TEST - A backpack that charges your phone",
-  "section": "Grades 7-8",
-  "number": "104"
+  "grade": "5",
+  "category": "Applied Engineering",
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 5-6",
+  "number": "182"
  },
  {
   "name": "Jordan Sampleton",
-  "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - Rainwater capture for school gardens",
-  "section": "Expo - Invention",
-  "number": "122"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - How salt changes the freezing point of water",
+  "section": "Grades 9-10",
+  "number": "204"
  },
  {
   "name": "Jordan Specimen",
   "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - Growing crystals faster",
-  "section": "Expo - Invention",
-  "number": "140"
+  "category": "Applied Engineering",
+  "title": "TEST - Rainwater capture for school gardens",
+  "section": "Grades 9-10",
+  "number": "213"
  },
  {
   "name": "Jordan Stubbs",
   "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "category": "Applied Engineering",
+  "title": "TEST - How salt changes the freezing point of water",
   "section": "Grade 4",
-  "number": "202"
+  "number": "205"
  },
  {
   "name": "Jordan Trialby",
-  "grade": "6",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 5-6",
-  "number": "198"
+  "number": "207"
  },
  {
   "name": "Josiah Draftman",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - Soil pH and bean sprouts",
   "section": "Grades 5-6",
-  "number": "253"
+  "number": "168"
  },
  {
   "name": "Josiah Placeholder",
   "grade": "5",
-  "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "category": "Applied Engineering",
+  "title": "TEST - Cleaning water with homemade filters",
   "section": "Grades 5-6",
-  "number": "232"
+  "number": "161"
  },
  {
   "name": "Josiah Sampleton",
-  "grade": "8",
-  "category": "Expo - Environmental",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Environmental",
-  "number": "246"
+  "grade": "7",
+  "category": "Hypothesis",
+  "title": "TEST - How temperature changes a basketball's bounce",
+  "section": "Grades 7-8",
+  "number": "152"
  },
  {
   "name": "Josiah Trialby",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - Does music help plants grow?",
   "section": "Grade 4",
-  "number": "114"
+  "number": "138"
  },
  {
   "name": "Kenya Demoson",
-  "grade": "9",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Grades 9-10",
-  "number": "176"
+  "title": "TEST - Rainwater capture for school gardens",
+  "section": "Grades 7-8",
+  "number": "132"
  },
  {
   "name": "Kenya Fakewood",
-  "grade": "7",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - A backpack that charges your phone",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 7-8",
-  "number": "118"
+  "number": "120"
  },
  {
   "name": "Kenya Pilotte",
-  "grade": "9",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grades 9-10",
-  "number": "125"
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 7-8",
+  "number": "218"
  },
  {
   "name": "Kenya Rehearsal",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - How temperature changes a basketball's bounce",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grade 4",
-  "number": "250"
+  "number": "186"
  },
  {
   "name": "Kenya Sampleton",
-  "grade": "8",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Do video games affect reaction time?",
+  "title": "TEST - Rainwater capture for school gardens",
   "section": "Grades 7-8",
-  "number": "152"
+  "number": "253"
  },
  {
   "name": "Kenya Testwell",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
+  "title": "TEST - Which paper towel absorbs the most water?",
   "section": "Grade 3",
-  "number": "133"
+  "number": "110"
  },
  {
   "name": "Kiara Betaworth",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - How salt changes the freezing point of water",
   "section": "Grade 3",
-  "number": "237"
+  "number": "212"
  },
  {
   "name": "Kiara Dryrun",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 5-6",
-  "number": "154"
+  "number": "140"
  },
  {
   "name": "Kiara Mockford",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Do video games affect reaction time?",
+  "title": "TEST - Rainwater capture for school gardens",
   "section": "Grades 5-6",
-  "number": "178"
+  "number": "195"
  },
  {
   "name": "Kofi Dummont",
-  "grade": "7",
-  "category": "Expo - Environmental",
-  "title": "TEST - Soil pH and bean sprouts",
-  "section": "Expo - Environmental",
-  "number": "218"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 9-10",
+  "number": "147"
  },
  {
   "name": "Kofi Mockford",
   "grade": "10",
-  "category": "Expo - Invention",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Invention",
-  "number": "168"
+  "category": "Hypothesis",
+  "title": "TEST - How temperature changes a basketball's bounce",
+  "section": "Grades 9-10",
+  "number": "165"
  },
  {
   "name": "Kofi Rehearsal",
   "grade": "10",
-  "category": "Expo - Invention",
-  "title": "TEST - An app that reminds you to drink water",
-  "section": "Expo - Invention",
-  "number": "205"
+  "category": "Hypothesis",
+  "title": "TEST - Paper airplane wing designs",
+  "section": "Grades 9-10",
+  "number": "155"
  },
  {
   "name": "Laila Betaworth",
-  "grade": "10",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
-  "section": "Grades 9-10",
-  "number": "187"
+  "title": "TEST - A backpack that charges your phone",
+  "section": "Grades 7-8",
+  "number": "135"
  },
  {
   "name": "Laila Mockford",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Expo - Invention",
-  "number": "242"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - How temperature changes a basketball's bounce",
+  "section": "Grades 9-10",
+  "number": "206"
  },
  {
   "name": "Laila Practise",
-  "grade": "8",
-  "category": "Expo - Environmental",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Environmental",
-  "number": "188"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Composting with worms",
+  "section": "Grades 9-10",
+  "number": "104"
  },
  {
   "name": "Langston Demoson",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
+  "title": "TEST - Composting with worms",
   "section": "Grade 4",
-  "number": "177"
+  "number": "109"
  },
  {
   "name": "Langston Dryrun",
-  "grade": "10",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
-  "section": "Grades 9-10",
-  "number": "161"
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 7-8",
+  "number": "105"
  },
  {
   "name": "Malik Demoson",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Composting with worms",
+  "title": "TEST - A backpack that charges your phone",
   "section": "Grades 5-6",
-  "number": "231"
+  "number": "224"
  },
  {
   "name": "Malik Draftman",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
+  "title": "TEST - Solar oven efficiency",
   "section": "Grade 4",
-  "number": "212"
+  "number": "164"
  },
  {
   "name": "Malik Pilotte",
-  "grade": "7",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
-  "section": "Grades 7-8",
-  "number": "238"
+  "title": "TEST - A low-cost air quality sensor",
+  "section": "Grades 5-6",
+  "number": "128"
  },
  {
   "name": "Malik Rehearsal",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Do video games affect reaction time?",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grades 5-6",
-  "number": "144"
+  "number": "203"
  },
  {
   "name": "Malik Specimen",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grade 4",
-  "number": "244"
+  "number": "117"
  },
  {
   "name": "Marcus Betaworth",
   "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - Does music help plants grow?",
   "section": "Grades 7-8",
-  "number": "228"
+  "number": "247"
  },
  {
   "name": "Marcus Sampleton",
   "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Invention",
-  "number": "141"
+  "category": "Hypothesis",
+  "title": "TEST - Cleaning water with homemade filters",
+  "section": "Grades 9-10",
+  "number": "240"
  },
  {
   "name": "Maya Rehearsal",
-  "grade": "10",
-  "category": "Expo - Invention",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Invention",
-  "number": "215"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 9-10",
+  "number": "154"
  },
  {
   "name": "Micah Dryrun",
-  "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grade 4",
-  "number": "138"
+  "grade": "5",
+  "category": "Applied Engineering",
+  "title": "TEST - Composting with worms",
+  "section": "Grades 5-6",
+  "number": "156"
  },
  {
   "name": "Micah Dummont",
-  "grade": "8",
-  "category": "Expo - Environmental",
-  "title": "TEST - Soil pH and bean sprouts",
-  "section": "Expo - Environmental",
-  "number": "153"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Battery life: brand vs. price",
+  "section": "Grades 9-10",
+  "number": "241"
  },
  {
   "name": "Micah Mockford",
   "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
+  "title": "TEST - How temperature changes a basketball's bounce",
   "section": "Grades 7-8",
-  "number": "227"
+  "number": "233"
  },
  {
   "name": "Micah Stubbs",
   "grade": "8",
-  "category": "Hypothesis",
-  "title": "TEST - Which bridge shape holds the most weight?",
+  "category": "Applied Engineering",
+  "title": "TEST - Does music help plants grow?",
   "section": "Grades 7-8",
-  "number": "217"
+  "number": "180"
  },
  {
   "name": "Micah Trialby",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grades 5-6",
-  "number": "129"
+  "number": "179"
  },
  {
   "name": "Miles Rehearsal",
   "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Wind turbine blade angles",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grades 5-6",
-  "number": "240"
+  "number": "193"
  },
  {
   "name": "Miles Sandbox",
-  "grade": "4",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 4",
-  "number": "233"
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 5-6",
+  "number": "173"
  },
  {
   "name": "Naomi Betaworth",
-  "grade": "7",
-  "category": "Expo - Environmental",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Expo - Environmental",
-  "number": "115"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - How salt changes the freezing point of water",
+  "section": "Grades 9-10",
+  "number": "227"
+ },
+ {
+  "name": "Naomi Placeholder",
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - Solar oven efficiency",
+  "section": "Grades 9-10",
+  "number": "248"
  },
  {
   "name": "Naomi Trialby",
-  "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - Soil pH and bean sprouts",
-  "section": "Expo - Invention",
-  "number": "132"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Paper airplane wing designs",
+  "section": "Grades 9-10",
+  "number": "151"
  },
  {
   "name": "Nyla Dryrun",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Invention",
-  "number": "158"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 9-10",
+  "number": "243"
  },
  {
   "name": "Nyla Fakewood",
-  "grade": "9",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
-  "section": "Grades 9-10",
-  "number": "211"
+  "title": "TEST - Do video games affect reaction time?",
+  "section": "Grades 7-8",
+  "number": "113"
  },
  {
   "name": "Nyla Testerman",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Sorting recycling with a robot arm",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grades 5-6",
-  "number": "219"
+  "number": "131"
  },
  {
   "name": "Omari Betaworth",
   "grade": "3",
-  "category": "Hypothesis",
-  "title": "TEST - Paper airplane wing designs",
+  "category": "Applied Engineering",
+  "title": "TEST - Wind turbine blade angles",
   "section": "Grade 3",
-  "number": "112"
+  "number": "169"
  },
  {
   "name": "Omari Dummont",
@@ -885,350 +893,366 @@
   "category": "Hypothesis",
   "title": "TEST - Cleaning water with homemade filters",
   "section": "Grade 4",
-  "number": "101"
+  "number": "133"
  },
  {
   "name": "Omari Mockford",
-  "grade": "6",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - How temperature changes a basketball's bounce",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grades 5-6",
-  "number": "120"
+  "number": "170"
  },
  {
   "name": "Omari Pilotte",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - An app that reminds you to drink water",
+  "title": "TEST - Growing crystals faster",
   "section": "Grade 4",
-  "number": "204"
+  "number": "210"
  },
  {
   "name": "Omari Practise",
   "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - Does caffeine affect typing speed?",
   "section": "Grades 7-8",
-  "number": "159"
+  "number": "162"
  },
  {
   "name": "Omari Sandbox",
-  "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - How temperature changes a basketball's bounce",
-  "section": "Expo - Invention",
-  "number": "200"
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - How salt changes the freezing point of water",
+  "section": "Grades 9-10",
+  "number": "201"
  },
  {
   "name": "Omari Testerman",
-  "grade": "7",
-  "category": "Expo - Environmental",
-  "title": "TEST - A backpack that charges your phone",
-  "section": "Expo - Environmental",
-  "number": "247"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Cleaning water with homemade filters",
+  "section": "Grades 9-10",
+  "number": "136"
  },
  {
   "name": "Sade Exampleby",
-  "grade": "5",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Does music help plants grow?",
+  "title": "TEST - Growing crystals faster",
   "section": "Grades 5-6",
-  "number": "169"
+  "number": "139"
  },
  {
   "name": "Sade Stubbs",
-  "grade": "8",
-  "category": "Expo - Invention",
+  "grade": "9",
+  "category": "Hypothesis",
   "title": "TEST - Wind turbine blade angles",
-  "section": "Expo - Invention",
-  "number": "230"
+  "section": "Grades 9-10",
+  "number": "123"
  },
  {
   "name": "Sade Testwell",
-  "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Grade 4",
-  "number": "192"
+  "grade": "5",
+  "category": "Applied Engineering",
+  "title": "TEST - Cleaning water with homemade filters",
+  "section": "Grades 5-6",
+  "number": "215"
  },
  {
   "name": "Selam Rehearsal",
-  "grade": "7",
+  "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
-  "section": "Grades 7-8",
-  "number": "220"
+  "title": "TEST - Do video games affect reaction time?",
+  "section": "Grades 5-6",
+  "number": "190"
  },
  {
   "name": "Selam Sandbox",
-  "grade": "9",
-  "category": "Expo - Environmental",
-  "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Expo - Environmental",
-  "number": "151"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Which bridge shape holds the most weight?",
+  "section": "Grades 9-10",
+  "number": "246"
  },
  {
   "name": "Simone Demoson",
-  "grade": "4",
+  "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Grade 4",
-  "number": "172"
+  "title": "TEST - A low-cost air quality sensor",
+  "section": "Grade 3",
+  "number": "166"
  },
  {
   "name": "Simone Prototype",
-  "grade": "10",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
-  "section": "Grades 9-10",
-  "number": "209"
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 7-8",
+  "number": "191"
  },
  {
   "name": "Simone Stubbs",
   "grade": "4",
-  "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "category": "Applied Engineering",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grade 4",
-  "number": "196"
+  "number": "122"
  },
  {
   "name": "Simone Testerman",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Wind turbine blade angles",
-  "section": "Expo - Invention",
-  "number": "165"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Sorting recycling with a robot arm",
+  "section": "Grades 9-10",
+  "number": "178"
  },
  {
   "name": "Simone Testwell",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "title": "TEST - Battery life: brand vs. price",
   "section": "Grades 5-6",
-  "number": "206"
+  "number": "116"
+ },
+ {
+  "name": "Tariq Demoson",
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - Battery life: brand vs. price",
+  "section": "Grades 9-10",
+  "number": "101"
  },
  {
   "name": "Tariq Placeholder",
-  "grade": "8",
-  "category": "Expo - Environmental",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Environmental",
-  "number": "167"
+  "grade": "7",
+  "category": "Hypothesis",
+  "title": "TEST - How temperature changes a basketball's bounce",
+  "section": "Grades 7-8",
+  "number": "184"
  },
  {
   "name": "Tariq Practise",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
+  "title": "TEST - Which paper towel absorbs the most water?",
   "section": "Grades 5-6",
-  "number": "128"
+  "number": "242"
  },
  {
   "name": "Tariq Sampleton",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
+  "title": "TEST - Rainwater capture for school gardens",
   "section": "Grade 4",
-  "number": "149"
+  "number": "255"
  },
  {
   "name": "Tariq Stubbs",
-  "grade": "9",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Sorting recycling with a robot arm",
-  "section": "Grades 9-10",
-  "number": "189"
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 7-8",
+  "number": "102"
  },
  {
   "name": "Tariq Testerman",
-  "grade": "9",
-  "category": "Expo - Invention",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Expo - Invention",
-  "number": "191"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Battery life: brand vs. price",
+  "section": "Grades 9-10",
+  "number": "256"
  },
  {
   "name": "Tariq Testwell",
   "grade": "4",
   "category": "Hypothesis",
-  "title": "TEST - Cleaning water with homemade filters",
+  "title": "TEST - Soil pH and bean sprouts",
   "section": "Grade 4",
-  "number": "102"
+  "number": "145"
  },
  {
   "name": "Tariq Trialby",
-  "grade": "6",
+  "grade": "5",
   "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
+  "title": "TEST - A backpack that charges your phone",
   "section": "Grades 5-6",
-  "number": "170"
+  "number": "234"
  },
  {
   "name": "Thandi Draftman",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - How salt changes the freezing point of water",
+  "title": "TEST - Cleaning water with homemade filters",
   "section": "Grade 3",
-  "number": "186"
+  "number": "251"
  },
  {
   "name": "Thandi Exampleby",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
+  "title": "TEST - Does music help plants grow?",
   "section": "Grades 5-6",
-  "number": "190"
+  "number": "130"
  },
  {
   "name": "Thandi Mockford",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - Paper airplane wing designs",
-  "section": "Expo - Invention",
-  "number": "210"
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Wind turbine blade angles",
+  "section": "Grades 9-10",
+  "number": "197"
  },
  {
   "name": "Thandi Stubbs",
   "grade": "3",
   "category": "Hypothesis",
-  "title": "TEST - Does music help plants grow?",
+  "title": "TEST - Soil pH and bean sprouts",
   "section": "Grade 3",
-  "number": "226"
+  "number": "127"
  },
  {
   "name": "Trey Exampleby",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - Cleaning water with homemade filters",
-  "section": "Expo - Invention",
-  "number": "135"
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Paper airplane wing designs",
+  "section": "Grades 9-10",
+  "number": "126"
  },
  {
   "name": "Trey Practise",
-  "grade": "7",
+  "grade": "8",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
+  "title": "TEST - Paper airplane wing designs",
   "section": "Grades 7-8",
-  "number": "236"
+  "number": "232"
  },
  {
   "name": "Trey Sampleton",
-  "grade": "6",
-  "category": "Hypothesis",
-  "title": "TEST - Which paper towel absorbs the most water?",
-  "section": "Grades 5-6",
-  "number": "146"
- },
- {
-  "name": "Xavier Betaworth",
-  "grade": "6",
+  "grade": "5",
   "category": "Hypothesis",
   "title": "TEST - Soil pH and bean sprouts",
   "section": "Grades 5-6",
-  "number": "175"
+  "number": "172"
+ },
+ {
+  "name": "Trey Testerman",
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Do video games affect reaction time?",
+  "section": "Grades 9-10",
+  "number": "198"
+ },
+ {
+  "name": "Xavier Betaworth",
+  "grade": "5",
+  "category": "Applied Engineering",
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 5-6",
+  "number": "249"
  },
  {
   "name": "Xavier Dryrun",
-  "grade": "10",
+  "grade": "7",
   "category": "Hypothesis",
-  "title": "TEST - Growing crystals faster",
-  "section": "Grades 9-10",
-  "number": "229"
+  "title": "TEST - Solar oven efficiency",
+  "section": "Grades 7-8",
+  "number": "153"
  },
  {
   "name": "Xavier Mockford",
   "grade": "6",
-  "category": "Hypothesis",
-  "title": "TEST - Wind turbine blade angles",
+  "category": "Applied Engineering",
+  "title": "TEST - Rainwater capture for school gardens",
   "section": "Grades 5-6",
-  "number": "163"
+  "number": "257"
  },
  {
   "name": "Xavier Pilotte",
-  "grade": "9",
-  "category": "Hypothesis",
-  "title": "TEST - Does caffeine affect typing speed?",
-  "section": "Grades 9-10",
-  "number": "224"
- },
- {
-  "name": "Xavier Stubbs",
-  "grade": "6",
-  "category": "Hypothesis",
-  "title": "TEST - A backpack that charges your phone",
-  "section": "Grades 5-6",
-  "number": "166"
- },
- {
-  "name": "Xavier Testwell",
-  "grade": "10",
-  "category": "Hypothesis",
-  "title": "TEST - Which bridge shape holds the most weight?",
-  "section": "Grades 9-10",
-  "number": "245"
- },
- {
-  "name": "Zora Fakewood",
-  "grade": "7",
-  "category": "Expo - Invention",
-  "title": "TEST - Solar oven efficiency",
-  "section": "Expo - Invention",
-  "number": "180"
- },
- {
-  "name": "Zora Practise",
-  "grade": "9",
-  "category": "Expo - Environmental",
-  "title": "TEST - Do video games affect reaction time?",
-  "section": "Expo - Environmental",
-  "number": "183"
- },
- {
-  "name": "Zora Testwell",
-  "grade": "8",
-  "category": "Expo - Invention",
-  "title": "TEST - How salt changes the freezing point of water",
-  "section": "Expo - Invention",
-  "number": "137"
- },
- {
-  "name": "Zuri Prototype",
   "grade": "8",
   "category": "Hypothesis",
   "title": "TEST - Battery life: brand vs. price",
   "section": "Grades 7-8",
-  "number": "185"
+  "number": "250"
+ },
+ {
+  "name": "Xavier Stubbs",
+  "grade": "5",
+  "category": "Hypothesis",
+  "title": "TEST - Do video games affect reaction time?",
+  "section": "Grades 5-6",
+  "number": "115"
+ },
+ {
+  "name": "Xavier Testwell",
+  "grade": "7",
+  "category": "Applied Engineering",
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 7-8",
+  "number": "160"
+ },
+ {
+  "name": "Zora Fakewood",
+  "grade": "10",
+  "category": "Applied Engineering",
+  "title": "TEST - An app that reminds you to drink water",
+  "section": "Grades 9-10",
+  "number": "108"
+ },
+ {
+  "name": "Zora Practise",
+  "grade": "9",
+  "category": "Hypothesis",
+  "title": "TEST - Growing crystals faster",
+  "section": "Grades 9-10",
+  "number": "163"
+ },
+ {
+  "name": "Zora Testwell",
+  "grade": "10",
+  "category": "Hypothesis",
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 9-10",
+  "number": "226"
+ },
+ {
+  "name": "Zuri Prototype",
+  "grade": "7",
+  "category": "Hypothesis",
+  "title": "TEST - Do video games affect reaction time?",
+  "section": "Grades 7-8",
+  "number": "111"
  },
  {
   "name": "Zuri Sampleton",
   "grade": "3",
-  "category": "Hypothesis",
-  "title": "TEST - Sorting recycling with a robot arm",
+  "category": "Applied Engineering",
+  "title": "TEST - Solar oven efficiency",
   "section": "Grade 3",
-  "number": "173"
+  "number": "244"
  },
  {
   "name": "Zuri Sandbox",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - A low-cost air quality sensor",
+  "title": "TEST - Does music help plants grow?",
   "section": "Grades 5-6",
-  "number": "199"
+  "number": "187"
  },
  {
   "name": "Zuri Specimen",
   "grade": "10",
-  "category": "Expo - Environmental",
-  "title": "TEST - Battery life: brand vs. price",
-  "section": "Expo - Environmental",
-  "number": "126"
+  "category": "Hypothesis",
+  "title": "TEST - Which paper towel absorbs the most water?",
+  "section": "Grades 9-10",
+  "number": "134"
  },
  {
   "name": "Zuri Testwell",
   "grade": "6",
   "category": "Hypothesis",
-  "title": "TEST - Rainwater capture for school gardens",
+  "title": "TEST - Do video games affect reaction time?",
   "section": "Grades 5-6",
-  "number": "155"
+  "number": "189"
  }
 ]

@@ -10,7 +10,7 @@ The map supports pinch, drag and double-tap zoom, and on an iPad held sideways t
 
 | Fair | Venue | Tables | Notes |
 |---|---|---|---|
-| 2027 | Bellarmine gym | 46 | default; draft copy of the 2026 map until the 2027 drawing exists |
+| 2027 | Bellarmine gym | 46 | default; draft on the 2026 table positions, grade areas only (no separate Expo tables) |
 | 2026 | Bellarmine gym | 46 | the reference map |
 | 2025 | Bellarmine gym | 36 | numbered in a snake |
 | 2023 | Emmanuel Baptist FLC | 38 | the original drawing had no table numbers, so these are made up |

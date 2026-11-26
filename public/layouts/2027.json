@@ -42,8 +42,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grade 4",
-   "color": "#f43f6b",
+   "section": "Grade 3",
+   "color": "#16b877",
    "capacity": 4
   },
   {
@@ -92,8 +92,8 @@
    "y": 61.6,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grade 4",
-   "color": "#f43f6b",
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -102,8 +102,8 @@
    "y": 61.6,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grade 4",
-   "color": "#f43f6b",
+   "section": "Grades 5-6",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -163,7 +163,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 5-6",
-   "color": "#ffe97a",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -173,7 +173,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 5-6",
-   "color": "#ffe97a",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -183,7 +183,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 5-6",
-   "color": "#ffe97a",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -193,7 +193,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 5-6",
-   "color": "#ffe97a",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -203,7 +203,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 5-6",
-   "color": "#ffe97a",
+   "color": "#ffab7a",
    "capacity": 4
   },
   {
@@ -253,7 +253,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 7-8",
-   "color": "#7b5cf0",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -263,7 +263,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 7-8",
-   "color": "#7b5cf0",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -273,7 +273,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 7-8",
-   "color": "#7b5cf0",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -283,7 +283,7 @@
    "w": 2.5,
    "h": 8.0,
    "section": "Grades 7-8",
-   "color": "#7b5cf0",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -292,8 +292,8 @@
    "y": 16.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -302,8 +302,8 @@
    "y": 16.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -312,8 +312,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -322,8 +322,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -332,8 +332,8 @@
    "y": 47.5,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -342,8 +342,8 @@
    "y": 47.5,
    "w": 2.5,
    "h": 8.0,
-   "section": "Grades 9-10",
-   "color": "#ffffff",
+   "section": "Grades 7-8",
+   "color": "#1ea7e1",
    "capacity": 4
   },
   {
@@ -352,8 +352,8 @@
    "y": 16.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Environmental",
-   "color": "#e3e6ea",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -362,8 +362,8 @@
    "y": 16.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Environmental",
-   "color": "#e3e6ea",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -372,8 +372,8 @@
    "y": 16.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Environmental",
-   "color": "#e3e6ea",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -382,8 +382,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Environmental",
-   "color": "#e3e6ea",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -392,8 +392,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -402,8 +402,8 @@
    "y": 30.7,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -412,8 +412,8 @@
    "y": 47.5,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -422,8 +422,8 @@
    "y": 47.5,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -432,8 +432,8 @@
    "y": 47.5,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -442,8 +442,8 @@
    "y": 61.6,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -452,8 +452,8 @@
    "y": 61.6,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   },
   {
@@ -462,8 +462,8 @@
    "y": 61.6,
    "w": 2.5,
    "h": 8.0,
-   "section": "Expo - Invention",
-   "color": "#16181d",
+   "section": "Grades 9-10",
+   "color": "#7b5cf0",
    "capacity": 4
   }
  ],
@@ -488,25 +488,15 @@
   },
   {
    "text": "Grades 7-8",
-   "x": 52.2,
-   "y": 9.6
+   "x": 61.0,
+   "y": 9.6,
+   "color": "#1582b3"
   },
   {
    "text": "Grades 9-10",
-   "x": 69.7,
-   "y": 9.6
-  },
-  {
-   "text": "Expo - Envir",
    "x": 91.9,
    "y": 9.6,
-   "size": 2.0
-  },
-  {
-   "text": "Expo - Invent",
-   "x": 91.9,
-   "y": 40.5,
-   "size": 2.0
+   "color": "#5b3fd6"
   }
  ],
  "desks": [
@@ -541,43 +531,22 @@
    18.3,
    10.4,
    18.3,
-   54.6,
-   "#ffab7a"
-  ],
-  [
-   18.3,
-   54.9,
-   34.6,
-   54.9,
-   "#f43f6b"
-  ],
-  [
-   34.8,
-   55.2,
-   34.8,
    67.5,
-   "#ffab7a"
+   "#9ca3af"
   ],
   [
    43.8,
    10.6,
    43.8,
    68.0,
-   "#6b7280"
-  ],
-  [
-   60.8,
-   11.5,
-   60.8,
-   68.0,
-   "#6b7280"
+   "#9ca3af"
   ],
   [
    79.5,
    11.5,
    79.5,
    68.0,
-   "#6b7280"
+   "#9ca3af"
   ]
  ]
 }
