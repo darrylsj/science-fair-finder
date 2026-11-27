@@ -125,7 +125,7 @@
     const list = $("#results");
     list.innerHTML = "";
     for (const s of rows.slice(0, MAX_ROWS)) {
-      const li = document.createElement("li");
+      const li = document.createElement("div");
       if (s.id === selectedId) li.className = "sel";
       const who = document.createElement("div");
       who.className = "who";
@@ -221,7 +221,7 @@
   $("#q").addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
     e.preventDefault(); // otherwise the same key press also "submits" the table box we are about to jump to
-    const first = $("#results li");
+    const first = $("#results > div");
     if (first) first.click();
   });
   $("#tabs").addEventListener("click", (e) => {

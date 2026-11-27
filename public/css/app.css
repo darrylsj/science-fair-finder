@@ -54,10 +54,10 @@ input[type=search] { font-size: 18px; }
 .dot { width: 9px; height: 9px; border-radius: 50%; background: #c2c8d2; flex: none; }
 .dot.live { background: #16b877; box-shadow: 0 0 0 3px rgba(22,184,119,.2); }
 
-.results { list-style: none; padding: 0; margin: 10px 0 0; }
-.results li { display: flex; align-items: center; gap: 12px; padding: 12px 6px; border-top: 1px solid var(--line); cursor: pointer; }
-.results li:first-child { border-top: 0; }
-.results li.sel { background: #eef7f3; border-radius: 10px; }
+.results { padding: 0; margin: 10px 0 0; }
+.results > div { display: flex; align-items: center; gap: 12px; padding: 12px 6px; border-top: 1px solid var(--line); cursor: pointer; }
+.results > div:first-child { border-top: 0; }
+.results > div.sel { background: #eef7f3; border-radius: 10px; }
 .who { flex: 1; min-width: 0; }
 .who b { display: block; font-size: 16px; }
 .who span { display: block; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -183,12 +183,12 @@ textarea { font-size: 16px; } /* smaller text makes iPhones zoom the whole page 
 :focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; border-radius: 6px; }
 .map-table:focus { outline: none; }
 .map-table:focus-visible rect.body { stroke: #1d4ed8; stroke-width: .8; }
-.results li:focus-visible { outline-offset: -3px; }
+.results > div:focus-visible { outline-offset: -3px; }
 
 /* The word "TABLE" on the orange block was too faint. */
 .found .big small { color: #fff; opacity: 1; font-size: 12px; font-weight: 700; }
 .found h2 { margin: 0 0 2px; font-size: 19px; }
-.results li.more { color: var(--brand); font-weight: 650; justify-content: center; }
+.results > div.more { color: var(--brand); font-weight: 650; justify-content: center; }
 
 /* Phones: the "assign a table" bar sits at the bottom of the screen, by your thumb, instead of covering the list. */
 @media (max-width: 999px) {
@@ -202,3 +202,5 @@ textarea { font-size: 16px; } /* smaller text makes iPhones zoom the whole page 
 .mapbar h2 { flex: 1 1 150px; min-width: 0; }
 .kbd-hint { display: none; }
 @media (min-width: 1000px) { .kbd-hint { display: block; } }
+.viewlinks a { padding: 14px 2px; }
+.top h1 small a { padding: 13px 2px; margin: -8px 0; }

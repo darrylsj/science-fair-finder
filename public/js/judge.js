@@ -100,7 +100,7 @@
     list.innerHTML = "";
     if (collapsed && selectedId && !wide()) {
       if (matches.length > 1) {
-        const more = document.createElement("li");
+        const more = document.createElement("div");
         more.className = "more";
         more.textContent = `Show all ${matches.length} matches`;
         SFF.asButton(more, () => {
@@ -114,7 +114,7 @@
     $("#noMatch").hidden = !(query.trim() && matches.length === 0);
     $("#howTo").hidden = Boolean(query.trim());
     for (const s of matches) {
-      const li = document.createElement("li");
+      const li = document.createElement("div"); // one row in the results list
       if (s.id === selectedId) li.className = "sel";
       const who = document.createElement("div");
       who.className = "who";
