@@ -89,4 +89,8 @@ Then open <http://localhost:8787>.
 - **Privacy.** The public view has no password, so once a real roster is uploaded, scholar names, grades, project titles
   and table numbers can be read by anyone who has the address. Pages ask search engines not to index them, and no real roster is stored in this repository. Delete the roster after the fair
   (Roster tools > Delete this roster).
+- **Works through Wi-Fi drops.** Once a phone has opened the site, it keeps a copy of the pages, the maps and the last
+  scholar list. With no signal it still opens and searches, and says how old its list is. Check-ins and "judged" marks
+  need a connection; the desk is told clearly when one did not save.
+- **Phones held upright** show the room turned a quarter turn so tables are bigger; sideways shows the printed-map view.
 - **Next ideas.** QR "you are here" signs at aisle ends, then NFC tags - see the wayfinding notes in the Claude project.

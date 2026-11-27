@@ -32,6 +32,12 @@
       $("#app").hidden = false;
       await openEvent();
     } catch (error) {
+      // Offline (no reply at all): stay signed in and show the last saved list, read-only.
+      if (code && error.status === undefined) {
+        $("#gate").hidden = true;
+        $("#app").hidden = false;
+        return openEvent();
+      }
       SFF.logout();
       $("#gate").hidden = false;
       $("#app").hidden = true;
@@ -51,17 +57,22 @@
   // ---------- data ----------
 
   async function refresh() {
+    let offline = false;
     try {
       students = (await SFF.api(`/events/${eventId}/students`)).students;
+      SFF.saveRoster("desk-" + eventId, students);
     } catch (error) {
       if (error.status === 401) return trySignIn("");
-      $("#status").textContent = "Offline - changes will not save";
-      return;
+      offline = true;
+      const saved = SFF.savedRoster("desk-" + eventId);
+      if (saved && students.length === 0) students = saved.students;
     }
+    $("#dot").classList.toggle("off", offline);
     const seated = students.filter((s) => s.table).length;
     $("#status").textContent = students.length
       ? `${seated} of ${students.length} checked in · ${students.length - seated} waiting · ${students.filter((x) => x.judged).length} judged`
       : "No roster yet - open Roster tools below";
+    if (offline) $("#status").textContent = "OFFLINE - check-ins will not save until the connection is back. " + $("#status").textContent;
     const counts = {};
     for (const s of students) if (s.table) counts[s.table] = (counts[s.table] || 0) + 1;
     map.counts(counts);
@@ -90,9 +101,23 @@
     if (latest.length === 0) list.innerHTML = '<li><span>Nobody yet.</span></li>';
   }
 
+  // Draws (or redraws) the map, turned a quarter turn on an upright phone.
+  let mapTurned = null;
+  function drawMapNow() {
+    mapTurned = SFF.portraitPhone();
+    map = SFF.drawMap($("#map"), layout, { turn: mapTurned, onTable: tableTapped, onZoom: (zoomed) => ($("#zoomAll").disabled = !zoomed) });
+    $("#turnNote").hidden = !mapTurned;
+  }
+  window.addEventListener("resize", () => {
+    if (!layout || SFF.portraitPhone() === mapTurned) return;
+    drawMapNow();
+    refresh();
+  });
+
   async function openEvent() {
     layout = await SFF.loadLayout(eventId);
-    map = SFF.drawMap($("#map"), layout, { onTable: tableTapped, onZoom: (zoomed) => ($("#zoomAll").disabled = !zoomed) });
+    students = [];
+    drawMapNow();
     SFF.drawLegend($("#legend"), layout);
     $("#mapTitle").textContent = layout.venue;
     selectedId = null;
@@ -186,15 +211,28 @@
   async function checkIn(student, tableId) {
     const table = layout.tables.find((t) => t.id === String(tableId).trim());
     if (!table) return SFF.toast(`There is no table "${tableId}" on this map.`);
+    const before = student.table || null; // where they were, so Undo can put them back
     const already = students.filter((s) => s.table === table.id && s.id !== student.id).length;
     // Show it as done right away so the desk can move on to the next scholar; the save happens behind the scenes.
     student.table = table.id;
     student.checkedInAt = Date.now();
     student.by = deskName;
-    SFF.toast(`${student.name} → table ${table.id}` + (already >= table.capacity ? ` (now ${already + 1} at a table for ${table.capacity})` : ""));
     $("#q").value = "";
     select(null);
-    await send("checkin", { id: student.id, table: table.id, by: deskName }); // reloads the list, or shows the error
+    const saved = await send("checkin", { id: student.id, table: table.id, by: deskName }); // reloads the list, or shows the error
+    if (!saved) return;
+    SFF.toast(
+      `${student.name} → table ${table.id}` + (already >= table.capacity ? ` (now ${already + 1} at a table for ${table.capacity})` : ""),
+      7000,
+      {
+        label: "Undo",
+        onPress: async () => {
+          if (await send("checkin", { id: student.id, table: before, by: deskName })) {
+            SFF.toast(before ? `${student.name} is back at table ${before}` : `${student.name} is waiting again`);
+          }
+        },
+      }
+    );
   }
 
   function tableTapped(tableId) {

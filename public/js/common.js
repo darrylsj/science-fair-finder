@@ -99,14 +99,52 @@ const SFF = (() => {
     });
   }
 
-  function toast(message, ms = 2600) {
+  // A short message at the bottom of the screen. Pass action = { label, onPress } to add a button (like Undo).
+  function toast(message, ms = 2600, action) {
     document.querySelectorAll(".toast").forEach((t) => t.remove());
     const box = document.createElement("div");
     box.className = "toast";
     box.setAttribute("role", "status"); // read out by screen readers
-    box.textContent = message;
+    box.appendChild(document.createTextNode(message));
+    if (action) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = action.label;
+      button.addEventListener("click", () => {
+        box.remove();
+        action.onPress();
+      });
+      box.appendChild(button);
+    }
     document.body.appendChild(box);
     setTimeout(() => box.remove(), ms);
+  }
+
+  // ---------- working without a connection ----------
+
+  // Saves the pages on the phone so the finder still opens if the gym Wi-Fi drops (see /sw.js).
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});
+
+  // The last scholar list this phone downloaded, kept so it can be shown while offline.
+  function saveRoster(key, students) {
+    remember("sff-roster-" + key, JSON.stringify({ at: Date.now(), students }));
+  }
+  function savedRoster(key) {
+    try {
+      return JSON.parse(recall("sff-roster-" + key) || "null");
+    } catch {
+      return null;
+    }
+  }
+  function forgetRosters() {
+    try {
+      Object.keys(localStorage).filter((k) => k.startsWith("sff-roster-")).forEach((k) => localStorage.removeItem(k));
+    } catch {
+      // private browsing: nothing was saved
+    }
+  }
+  function clock(ms) {
+    return new Date(ms).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
   }
 
   // ---------- access code ----------
@@ -130,7 +168,9 @@ const SFF = (() => {
   }
 
   async function api(path, options = {}) {
-    const response = await fetch("/api" + path, {
+    let response;
+    try {
+      response = await fetch("/api" + path, {
       method: options.method || "GET",
       headers: {
         "x-access-code": accessCode || "",
@@ -139,6 +179,9 @@ const SFF = (() => {
       },
       body: options.body ? JSON.stringify(options.body) : undefined,
     });
+    } catch {
+      throw new Error("No connection"); // no status code = the phone could not reach the server
+    }
     let data = {};
     try {
       data = await response.json();
@@ -163,6 +206,7 @@ const SFF = (() => {
   function logout() {
     accessCode = null;
     remember(CODE_KEY, null);
+    forgetRosters();
   }
 
   function savedCode() {
@@ -230,6 +274,10 @@ const SFF = (() => {
       socket.onerror = () => socket.close();
     }
 
+    window.addEventListener("online", () => {
+      connect();
+      onChange(null);
+    });
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) {
         connect();
@@ -250,9 +298,44 @@ const SFF = (() => {
     return brightness > 150 ? "#14213d" : "#ffffff";
   }
 
+  // Phones held upright get the room turned a quarter turn, so the long wall runs down
+  // the screen and every table is about 50% bigger. Turn the phone sideways for the poster view.
+  function portraitPhone() {
+    return window.innerWidth < 600 && window.innerHeight > window.innerWidth;
+  }
+
+  // Returns a copy of a layout turned a quarter turn clockwise.
+  // A spot (x, y) moves to (room height - y, x): the old left wall becomes the top wall.
+  function turnLayout(layout) {
+    const H = layout.height;
+    const spot = (x, y) => [Math.round((H - y) * 10) / 10, x];
+    return {
+      ...layout,
+      turned: true,
+      width: layout.height,
+      height: layout.width,
+      tables: layout.tables.map((t) => {
+        const [x, y] = spot(t.x, t.y);
+        return { ...t, x, y, w: t.h, h: t.w };
+      }),
+      labels: (layout.labels || []).map((label) => {
+        const [x, y] = spot(label.x, label.y);
+        return { ...label, x, y };
+      }),
+      desks: (layout.desks || []).map((desk) => {
+        const [x, y] = spot(desk.x, desk.y);
+        return { ...desk, x, y, w: desk.h, h: desk.w };
+      }),
+      doors: (layout.doors || []).map((door) => ({ side: door.side === "left" ? "top" : "bottom", at: H - door.at })),
+      lines: (layout.lines || []).map(([x1, y1, x2, y2, color]) => [...spot(x1, y1), ...spot(x2, y2), color]),
+    };
+  }
+
   // Draws the room into `holder` and returns helpers to highlight tables.
+  // options.turn: true draws the quarter-turned phone version.
   // options.onTable(tableId) is called when someone taps a table.
-  function drawMap(holder, layout, options = {}) {
+  function drawMap(holder, originalLayout, options = {}) {
+    const layout = options.turn ? turnLayout(originalLayout) : originalLayout;
     const W = layout.width;
     const H = layout.height;
     const svg = el("svg", { viewBox: `-1.5 -1.5 ${W + 3} ${H + 3}`, role: "group", "aria-label": "Map of project tables" });
@@ -262,21 +345,34 @@ const SFF = (() => {
       svg.appendChild(el("line", { x1, y1, x2, y2, stroke: color, "stroke-width": 0.5, "stroke-linecap": "round", opacity: 0.8 }));
     }
     for (const door of layout.doors || []) {
-      const x = door.side === "left" ? 0 : W;
-      const sweep = door.side === "left" ? 1 : 0;
-      const dx = door.side === "left" ? 3 : -3;
-      svg.appendChild(el("path", {
-        d: `M ${x} ${door.at - 3} A 3 3 0 0 ${sweep} ${x + dx} ${door.at} A 3 3 0 0 ${sweep} ${x} ${door.at + 3}`,
-        fill: "none", stroke: "#8a93a3", "stroke-width": 0.25, "stroke-dasharray": "0.5 0.4",
-      }));
-      svg.appendChild(el("line", { x1: x, y1: door.at - 3, x2: x, y2: door.at + 3, stroke: "#ffffff", "stroke-width": 0.6 }));
+      // A dotted half-circle on the wall, with a gap in the wall line.
+      const along = door.side === "top" || door.side === "bottom"; // door sits on a horizontal wall
+      const wall = door.side === "left" || door.side === "top" ? 0 : along ? H : W;
+      const into = wall === 0 ? 3 : -3; // which way the door swings into the room
+      const sweep = (door.side === "left" || door.side === "bottom") ? 1 : 0;
+      const a = door.at - 3;
+      const b = door.at + 3;
+      const d = along
+        ? `M ${a} ${wall} A 3 3 0 0 ${sweep} ${door.at} ${wall + into} A 3 3 0 0 ${sweep} ${b} ${wall}`
+        : `M ${wall} ${a} A 3 3 0 0 ${sweep} ${wall + into} ${door.at} A 3 3 0 0 ${sweep} ${wall} ${b}`;
+      svg.appendChild(el("path", { d, fill: "none", stroke: "#8a93a3", "stroke-width": 0.25, "stroke-dasharray": "0.5 0.4" }));
+      svg.appendChild(el("line", along ? { x1: a, y1: wall, x2: b, y2: wall, stroke: "#ffffff", "stroke-width": 0.6 } : { x1: wall, y1: a, x2: wall, y2: b, stroke: "#ffffff", "stroke-width": 0.6 }));
     }
     for (const desk of layout.desks || []) {
       svg.appendChild(el("rect", { x: desk.x - desk.w / 2, y: desk.y - desk.h / 2, width: desk.w, height: desk.h, rx: 0.3, fill: "#e3e6ea", stroke: "#6b7280", "stroke-width": 0.15 }));
-      if (desk.text) svg.appendChild(el("text", { x: desk.x, y: desk.y + desk.h / 2 + 2.3, "text-anchor": "middle", "font-size": 1.9, fill: "#14213d" }, desk.text));
+      if (!desk.text) continue;
+      if (layout.turned) {
+        // Turned map: write the name down the side of the desk.
+        const x = desk.x - desk.w / 2 - 2.6;
+        svg.appendChild(el("text", { x, y: desk.y, "text-anchor": "middle", "font-size": 1.9, fill: "#14213d", transform: `rotate(90 ${x} ${desk.y})` }, desk.text));
+      } else {
+        svg.appendChild(el("text", { x: desk.x, y: desk.y + desk.h / 2 + 2.3, "text-anchor": "middle", "font-size": 1.9, fill: "#14213d" }, desk.text));
+      }
     }
     for (const label of layout.labels || []) {
-      svg.appendChild(el("text", { x: label.x, y: label.y, "text-anchor": "middle", "font-size": label.size || 2.6, "font-weight": 600, fill: label.color || "#14213d" }, label.text));
+      const attrs = { x: label.x, y: label.y, "text-anchor": "middle", "font-size": label.size || 2.6, "font-weight": 600, fill: label.color || "#14213d" };
+      if (layout.turned) attrs.transform = `rotate(90 ${label.x} ${label.y})`; // area names read down the page
+      svg.appendChild(el("text", attrs, label.text));
     }
 
     const groups = {};
@@ -294,7 +390,8 @@ const SFF = (() => {
         // On a phone showing the whole room, tables are too small to hit reliably.
         // So the first tap zooms in on that spot; the next tap picks the table.
         const shown = g.getBoundingClientRect();
-        if (shown.width < 30 && e.clientX) return zoomAt(Math.min(3.2, 40 / shown.width), e.clientX, e.clientY, true);
+        const smallest = Math.min(shown.width, shown.height);
+        if (smallest < 30 && e.clientX) return zoomAt(Math.min(3.2, 40 / smallest), e.clientX, e.clientY, true);
         if (options.onTable) options.onTable(t.id);
       });
       // Keyboard and switch-control users: Enter or Space picks the table.
@@ -454,7 +551,7 @@ const SFF = (() => {
         overlay.appendChild(el("circle", { class: "pulse", cx: hit.t.x, cy: hit.t.y, r: 7 }));
         if (zoom) {
           // Phones get a closer look than tablets, where the whole room is already readable.
-          const w = full.w / (svg.getBoundingClientRect().width < 520 ? 2.2 : 1.5);
+          const w = full.w / (layout.turned ? 1.6 : svg.getBoundingClientRect().width < 520 ? 2.2 : 1.5);
           glideTo({ w, x: hit.t.x - w / 2, y: hit.t.y - (w * full.h) / full.w / 2 });
         }
       },
@@ -514,7 +611,12 @@ const SFF = (() => {
   }
 
   async function showDemoBanner() {
-    const config = await (await fetch("/api/config")).json();
+    let config = { demo: false };
+    try {
+      config = await (await fetch("/api/config")).json();
+    } catch {
+      return config; // offline: skip the banner
+    }
     const banner = $("#demo");
     if (config.demo && banner) {
       banner.hidden = false;
@@ -523,5 +625,5 @@ const SFF = (() => {
     return config;
   }
 
-  return { $, api, asButton, judgedDots, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
+  return { $, api, asButton, clock, forgetRosters, judgedDots, portraitPhone, savedRoster, saveRoster, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
 })();

@@ -204,3 +204,8 @@ textarea { font-size: 16px; } /* smaller text makes iPhones zoom the whole page 
 @media (min-width: 1000px) { .kbd-hint { display: block; } }
 .viewlinks a { padding: 14px 2px; }
 .top h1 small a { padding: 13px 2px; margin: -8px 0; }
+
+/* ---------- offline + undo ---------- */
+.dot.off { background: #d97706; box-shadow: 0 0 0 3px rgba(217,119,6,.2); }
+.toast { display: flex; align-items: center; gap: 12px; }
+.toast button { border: 0; border-radius: 999px; background: #fff; color: #14213d; font-weight: 700; padding: 8px 14px; min-height: 36px; cursor: pointer; }

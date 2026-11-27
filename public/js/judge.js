@@ -41,6 +41,14 @@
       await openEvent();
       return true;
     } catch (error) {
+      // No answer from the server at all (not a "wrong code" reply) means we are offline.
+      // Keep the judge signed in and show the last list saved on this phone.
+      if (code && error.status === undefined) {
+        $("#gate").hidden = true;
+        $("#app").hidden = false;
+        await openEvent();
+        return true;
+      }
       SFF.logout();
       $("#gate").hidden = false;
       $("#app").hidden = true;
@@ -63,26 +71,47 @@
 
   // ---------- data ----------
 
+  const rosterKey = () => (isJudgeView ? "judge-" : "public-") + eventId;
+
   async function refresh() {
+    let offlineSince = null;
     try {
       const data = await SFF.api(`/events/${eventId}/students`);
       students = data.students;
-      const seated = students.filter((s) => s.table).length;
-      $("#status").textContent = students.length
-        ? `${seated} of ${students.length} scholars checked in`
-        : "No roster loaded for this fair yet";
-      renderResults();
-      renderFound();
-      renderMine();
+      SFF.saveRoster(rosterKey(), students); // keep a copy on this phone in case the connection drops
     } catch (error) {
-      if (error.status === 401 && isJudgeView) trySignIn("");
-      else $("#status").textContent = "Offline - showing the last list";
+      if (error.status === 401 && isJudgeView) return trySignIn("");
+      // No connection: fall back to the last list this phone downloaded.
+      const saved = SFF.savedRoster(rosterKey());
+      if (saved) {
+        if (students.length === 0) students = saved.students;
+        offlineSince = saved.at;
+      } else {
+        $("#status").textContent = "No connection yet - this will fill in when you are back online";
+        return;
+      }
     }
+    const seated = students.filter((s) => s.table).length;
+    const summary = students.length ? `${seated} of ${students.length} scholars checked in` : "No roster loaded for this fair yet";
+    $("#status").textContent = offlineSince ? `Offline - showing the list saved at ${SFF.clock(offlineSince)}. ${summary}.` : summary;
+    $("#dot").classList.toggle("off", Boolean(offlineSince));
+    renderResults();
+    renderFound();
+    renderMine();
+  }
+
+  // Draws (or redraws) the map, turned a quarter turn on an upright phone.
+  let mapTurned = null;
+  function drawMapNow() {
+    mapTurned = SFF.portraitPhone();
+    map = SFF.drawMap($("#map"), layout, { turn: mapTurned, onTable: showTable, onZoom: (zoomed) => ($("#zoomAll").disabled = !zoomed) });
+    $("#turnNote").hidden = !mapTurned;
   }
 
   async function openEvent() {
     layout = await SFF.loadLayout(eventId);
-    map = SFF.drawMap($("#map"), layout, { onTable: showTable, onZoom: (zoomed) => ($("#zoomAll").disabled = !zoomed) });
+    students = [];
+    drawMapNow();
     SFF.drawLegend($("#legend"), layout);
     $("#mapTitle").textContent = layout.venue;
     selectedId = null;
@@ -258,6 +287,13 @@
       SFF.toast("Not saved: " + error.message, 4000);
     }
     refresh();
+  });
+
+  // Turning the phone switches between the upright map and the poster view.
+  window.addEventListener("resize", () => {
+    if (!layout || SFF.portraitPhone() === mapTurned) return;
+    drawMapNow();
+    renderFound();
   });
 
   $("#zoomIn").addEventListener("click", () => map.zoomIn());
