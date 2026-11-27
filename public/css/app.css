@@ -6,7 +6,7 @@
   --card: #ffffff;
   --brand: #0b6e4f;
   --brand-ink: #ffffff;
-  --accent: #e4572e;
+  --accent: #c2410c;
   --ok: #0b6e4f;
   --wait: #9a6700;
   --radius: 14px;
@@ -167,3 +167,38 @@ kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5p
 /* Project titles: darker than the other small print (not bold) so the experiment name stands out. */
 .who em, #foundTitle { color: #1f2a3d; }
 #foundTitle { margin-top: 3px; }
+
+/* ================= Design pass: touch targets, contrast, focus, phone layout ================= */
+
+/* Everything you tap is at least 44px tall (Apple and WCAG guidance). */
+.btn, .btn.small, .tabs button, .top select, #assignTable, .mine button { min-height: 44px; }
+.zoomer button { flex: none; }
+details summary { padding: 11px 0; }
+.viewlinks a, .top h1 small a { display: inline-block; padding: 12px 2px; }
+.top h1 small a { padding: 6px 2px; }
+.mine button span.x { padding: 11px 12px; margin: -11px -8px -11px -4px; font-size: 18px; }
+textarea { font-size: 16px; } /* smaller text makes iPhones zoom the whole page when you tap in */
+
+/* A clear outline when moving around with a keyboard or switch control. */
+:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; border-radius: 6px; }
+.map-table:focus { outline: none; }
+.map-table:focus-visible rect.body { stroke: #1d4ed8; stroke-width: .8; }
+.results li:focus-visible { outline-offset: -3px; }
+
+/* The word "TABLE" on the orange block was too faint. */
+.found .big small { color: #fff; opacity: 1; font-size: 12px; font-weight: 700; }
+.found h2 { margin: 0 0 2px; font-size: 19px; }
+.results li.more { color: var(--brand); font-weight: 650; justify-content: center; }
+
+/* Phones: the "assign a table" bar sits at the bottom of the screen, by your thumb, instead of covering the list. */
+@media (max-width: 999px) {
+  .assign { position: fixed; left: 0; right: 0; bottom: 0; top: auto; margin: 0; border-radius: 18px 18px 0 0; z-index: 15;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 24px rgba(0,0,0,.28); }
+  .assign p { margin-bottom: 8px; }
+  body.assigning main { padding-bottom: 230px; }
+  body.assigning .toast { bottom: 240px; }
+}
+.mapbar { flex-wrap: wrap; gap: 8px; }
+.mapbar h2 { flex: 1 1 150px; min-width: 0; }
+.kbd-hint { display: none; }
+@media (min-width: 1000px) { .kbd-hint { display: block; } }

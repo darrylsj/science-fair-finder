@@ -143,7 +143,7 @@
       chip.className = "chip" + (s.table ? "" : " wait");
       chip.textContent = s.table ? "Table " + s.table : "Waiting";
       li.append(who, chip);
-      li.addEventListener("click", () => select(s.id));
+      SFF.asButton(li, () => select(s.id));
       list.appendChild(li);
     }
     $("#more").textContent =
@@ -165,6 +165,7 @@
   function renderAssign() {
     const s = students.find((x) => x.id === selectedId);
     $("#assign").hidden = !s;
+    document.body.classList.toggle("assigning", Boolean(s)); // leaves room for the bottom bar on phones
     if (!s) {
       map.highlight(null);
       map.suggest(null);

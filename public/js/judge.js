@@ -9,6 +9,7 @@
   let map = null;
   let students = [];
   let selectedId = null;
+  let collapsed = false; // on a phone, hide the other matches once one is picked so the answer is at the top
   const isJudgeView = document.body.dataset.view === "judge";
   let mine = []; // ids of scholars this judge has looked up, remembered on this phone
   const mineKey = () => "sff-mine-" + eventId;
@@ -97,6 +98,19 @@
     const query = $("#q").value;
     const matches = SFF.search(students, query).slice(0, 8);
     list.innerHTML = "";
+    if (collapsed && selectedId && !wide()) {
+      if (matches.length > 1) {
+        const more = document.createElement("li");
+        more.className = "more";
+        more.textContent = `Show all ${matches.length} matches`;
+        SFF.asButton(more, () => {
+          collapsed = false;
+          renderResults();
+        });
+        list.appendChild(more);
+      }
+      return;
+    }
     $("#noMatch").hidden = !(query.trim() && matches.length === 0);
     $("#howTo").hidden = Boolean(query.trim());
     for (const s of matches) {
@@ -121,7 +135,7 @@
       chip.className = "chip" + (s.table ? "" : " wait");
       chip.textContent = s.table ? "Table " + s.table : "Not here yet";
       li.append(who, chip);
-      li.addEventListener("click", () => select(s.id, true));
+      SFF.asButton(li, () => select(s.id, true));
       list.appendChild(li);
     }
     // Only one match? Show it straight away.
@@ -131,6 +145,7 @@
   // tapped = the judge tapped a row (as opposed to us auto-picking the only match while they type)
   function select(id, tapped) {
     selectedId = id;
+    if (tapped) collapsed = true;
     if (tapped && !mine.includes(id)) {
       mine.unshift(id);
       mine = mine.slice(0, 20);
@@ -152,6 +167,8 @@
     const table = layout.tables.find((t) => t.id === s.table);
     $("#foundName").textContent = s.name + (s.number ? "  #" + s.number : "");
     $("#foundTitle").textContent = s.title || "";
+    $("#foundDots").innerHTML = "";
+    if (isJudgeView) $("#foundDots").appendChild(SFF.judgedDots(s));
     $("#judgeBar").hidden = !isJudgeView;
     if (isJudgeView) {
       const others = (s.judged || 0) - (s.mine ? 1 : 0);
@@ -220,6 +237,7 @@
   // ---------- wiring ----------
 
   $("#q").addEventListener("input", () => {
+    collapsed = false;
     selectedId = null;
     renderResults();
     renderFound();

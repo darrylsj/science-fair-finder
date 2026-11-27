@@ -87,10 +87,23 @@ const SFF = (() => {
     return scored.map((pair) => pair[1]);
   }
 
+  // Makes a list row behave like a button for keyboards and screen readers.
+  function asButton(row, onPress) {
+    row.setAttribute("role", "button");
+    row.tabIndex = 0;
+    row.addEventListener("click", onPress);
+    row.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      onPress();
+    });
+  }
+
   function toast(message, ms = 2600) {
     document.querySelectorAll(".toast").forEach((t) => t.remove());
     const box = document.createElement("div");
     box.className = "toast";
+    box.setAttribute("role", "status"); // read out by screen readers
     box.textContent = message;
     document.body.appendChild(box);
     setTimeout(() => box.remove(), ms);
@@ -166,7 +179,8 @@ const SFF = (() => {
     for (const event of events) {
       const option = document.createElement("option");
       option.value = event.id;
-      option.textContent = event.name;
+      // Phones get just the year so the header stays on one line.
+      option.textContent = window.innerWidth < 600 ? event.id : event.name;
       selectNode.appendChild(option);
     }
     selectNode.value = start.id;
@@ -241,7 +255,7 @@ const SFF = (() => {
   function drawMap(holder, layout, options = {}) {
     const W = layout.width;
     const H = layout.height;
-    const svg = el("svg", { viewBox: `-1.5 -1.5 ${W + 3} ${H + 3}`, role: "img", "aria-label": "Map of project tables" });
+    const svg = el("svg", { viewBox: `-1.5 -1.5 ${W + 3} ${H + 3}`, role: "group", "aria-label": "Map of project tables" });
     svg.appendChild(el("rect", { x: 0, y: 0, width: W, height: H, fill: "#ffffff", stroke: "#2b2f36", "stroke-width": 0.35 }));
 
     for (const [x1, y1, x2, y2, color] of layout.lines || []) {
@@ -271,11 +285,24 @@ const SFF = (() => {
       const upright = t.h >= t.w;
       const w = upright ? Math.max(t.w, 5.6) : t.w;
       const h = upright ? t.h : Math.max(t.h, 5.2);
-      const g = el("g", { class: "map-table", "data-id": t.id, tabindex: 0, role: "button" });
+      const g = el("g", { class: "map-table", "data-id": t.id, tabindex: 0, role: "button", "aria-label": `Table ${t.id}, ${t.section}` });
       g.appendChild(el("title", {}, `Table ${t.id} - ${t.section}`));
       g.appendChild(el("rect", { class: "body", x: t.x - w / 2, y: t.y - h / 2, width: w, height: h, rx: 0.8, fill: t.color }));
       g.appendChild(el("text", { x: t.x, y: t.y + 1.35, "text-anchor": "middle", "font-size": 3.7, fill: textColorFor(t.color) }, t.id));
-      g.addEventListener("click", () => !justDragged && options.onTable && options.onTable(t.id));
+      g.addEventListener("click", (e) => {
+        if (justDragged) return;
+        // On a phone showing the whole room, tables are too small to hit reliably.
+        // So the first tap zooms in on that spot; the next tap picks the table.
+        const shown = g.getBoundingClientRect();
+        if (shown.width < 30 && e.clientX) return zoomAt(Math.min(3.2, 40 / shown.width), e.clientX, e.clientY, true);
+        if (options.onTable) options.onTable(t.id);
+      });
+      // Keyboard and switch-control users: Enter or Space picks the table.
+      g.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        if (options.onTable) options.onTable(t.id);
+      });
       svg.appendChild(g);
       groups[t.id] = { g, t, w, h };
     }
@@ -496,5 +523,5 @@ const SFF = (() => {
     return config;
   }
 
-  return { $, api, judgedDots, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
+  return { $, api, asButton, judgedDots, login, logout, savedCode, loadEvents, loadLayout, live, drawMap, drawLegend, search, toast, showDemoBanner };
 })();
